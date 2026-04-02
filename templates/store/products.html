@@ -1,0 +1,561 @@
+{% extends 'base.html' %}
+{% block title %}Products – Aurette{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ─── PAGE HEADER ────────────────────────────────────────── */
+.page-header {
+    padding: 140px 0 50px;
+    background: linear-gradient(to bottom, #111 0%, var(--black) 100%);
+    text-align: center;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+/* ─── FILTER BAR ─────────────────────────────────────────── */
+.filter-bar {
+    background: var(--dark-2);
+    border-bottom: 1px solid #2A2A2A;
+    padding: 12px 0;
+    position: sticky;
+    top: 65px;
+    z-index: 100;
+}
+
+.filter-scroll-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-scroll-btn {
+    background: var(--dark-3);
+    border: 1px solid #333;
+    color: var(--gold);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    font-size: 0.75rem;
+}
+
+.filter-scroll-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+}
+
+.filter-scroll-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    flex: 1;
+    padding: 4px 0;
+}
+
+.filter-scroll-inner::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: var(--gray);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+.filter-btn.active { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+.filter-divider {
+    color: #333;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+}
+
+.sort-select {
+    background: var(--dark-3);
+    border: 1px solid #333;
+    color: var(--white);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    padding: 7px 16px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    flex-shrink: 0;
+}
+
+.sort-select:focus { border-color: var(--gold); }
+
+/* ─── PRODUCTS SECTION ───────────────────────────────────── */
+.products-section { padding: 50px 0 80px; }
+
+.product-count {
+    font-size: 0.75rem;
+    color: var(--gray);
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.product-count span { color: var(--gold); }
+
+/* ─── PRODUCT CARD ───────────────────────────────────────── */
+.product-card {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 50px rgba(201,168,76,0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img { transform: scale(1.05); }
+
+.product-card .card-body {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card .brand-label {
+    font-size: 0.6rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.product-card .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--white);
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.product-card .card-desc {
+    font-size: 0.72rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-card .card-price {
+    color: var(--gold);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 12px;
+}
+
+.star-rating i { font-size: 0.7rem; color: var(--gold); }
+.star-rating span { font-size: 0.65rem; color: var(--gray); margin-left: 4px; }
+
+.card-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.btn-cart {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 9px 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.btn-cart:hover { background: var(--gold); color: var(--black); }
+
+.btn-buy {
+    flex: 1;
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    color: var(--black);
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 9px 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+}
+
+.btn-buy:hover { background: var(--gold-light); color: var(--black); }
+
+.product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+.price-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.original-price {
+    font-size: 0.8rem;
+    color: var(--gray);
+    text-decoration: line-through;
+}
+
+.discount-badge {
+    background: #e74c3c;
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    letter-spacing: 1px;
+}
+.btn-sold-out {
+    flex: 1;
+    background: #2A2A2A;
+    border: 1px solid #444;
+    color: var(--gray);
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 9px 8px;
+    text-align: center;
+    cursor: not-allowed;
+    display: block;
+    width: 100%;
+}
+
+/* ─── NO PRODUCTS ────────────────────────────────────────── */
+.no-products {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.no-products i {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.no-products h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+/* ─── MOBILE ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 2.2rem; }
+    .filter-bar { top: 56px; }
+    .product-card img { height: 180px; }
+    .card-buttons { flex-direction: column; gap: 6px; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ─── PAGE HEADER ────────────────────────────────────────── -->
+<div class="page-header">
+    <p>Aurette Collection</p>
+    <h1>Our Jewellery</h1>
+</div>
+{% if current_category %}
+<div style="background:var(--dark-2);border-bottom:1px solid #2A2A2A;padding:30px 0;">
+    <div class="container">
+        <div class="d-flex align-items-center gap-3 mb-2">
+            <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--white);margin:0;">
+                Aurette {{ current_category.name }}
+            </h2>
+            <span style="font-size:0.65rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold);padding:3px 10px;">
+                {{ current_category.gender|title }}
+            </span>
+        </div>
+        {% if current_category.description %}
+        <p style="font-size:0.85rem;color:var(--gray);line-height:1.8;max-width:700px;margin:0;">
+            {{ current_category.description }}
+        </p>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+<!-- ─── FILTER BAR ─────────────────────────────────────────── -->
+<div class="filter-bar">
+    <div class="container">
+        <div class="filter-scroll-wrap">
+
+            <button class="filter-scroll-btn" id="scrollLeft">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="filter-scroll-inner" id="filterScroll">
+                <a href="/products/"
+                   class="filter-btn {% if not category_filter and not brand_filter %}active{% endif %}">
+                    All
+                </a>
+                {% for category in categories %}
+                <a href="/products/?category={{ category.name }}"
+                   class="filter-btn {% if category_filter == category.name %}active{% endif %}">
+                    {{ category.name }}
+                </a>
+                {% endfor %}
+
+                <span class="filter-divider">|</span>
+
+                {% for brand in brands %}
+                <a href="/products/?brand={{ brand.name }}"
+                   class="filter-btn {% if brand_filter == brand.name %}active{% endif %}">
+                    {{ brand.name }}
+                </a>
+                {% endfor %}
+            </div>
+
+            <button class="filter-scroll-btn" id="scrollRight">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <select class="sort-select" onchange="window.location.href=this.value">
+                <option value="/products/?{% if category_filter %}category={{ category_filter }}&{% endif %}sort=newest"
+                    {% if sort_filter == 'newest' or not sort_filter %}selected{% endif %}>
+                    Sort: Newest
+                </option>
+                <option value="/products/?{% if category_filter %}category={{ category_filter }}&{% endif %}sort=price_low"
+                    {% if sort_filter == 'price_low' %}selected{% endif %}>
+                    Price: Low → High
+                </option>
+                <option value="/products/?{% if category_filter %}category={{ category_filter }}&{% endif %}sort=price_high"
+                    {% if sort_filter == 'price_high' %}selected{% endif %}>
+                    Price: High → Low
+                </option>
+            </select>
+
+        </div>
+    </div>
+</div>
+
+<!-- ─── PRODUCTS GRID ──────────────────────────────────────── -->
+<section class="products-section">
+    <div class="container">
+
+        <p class="product-count">
+            Showing <span>{{ products|length }}</span> products
+            {% if category_filter %}in <span>{{ category_filter }}</span>{% endif %}
+            {% if brand_filter %}by <span>{{ brand_filter }}</span>{% endif %}
+        </p>
+
+        {% if products %}
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="product-card" onclick="window.location.href='/products/{{ product.id }}/'">
+
+                    {% if product.is_featured %}
+<span class="product-badge">Featured</span>
+{% endif %}
+{% if product.discount_percentage %}
+<span class="product-badge" style="background:#e7a33c;top:{% if product.is_featured %}45px{% else %}15px{% endif %};">
+    -{{ product.discount_percentage }}%
+</span>
+{% endif %}
+{% if product.stock == 0 %}
+<span class="product-badge" style="background:#555;top:15px;">Sold Out</span>
+{% elif product.is_featured %}
+<span class="product-badge">Featured</span>
+{% endif %}
+{% if product.discount_percentage and product.stock > 0 %}
+<span class="product-badge" style="background:#e74c3c;top:{% if product.is_featured %}45px{% else %}15px{% endif %};">
+    -{{ product.discount_percentage }}%
+</span>
+{% endif %}
+
+                    <button class="wish-btn {% if product.id in wishlist_ids %}wishlisted{% endif %}"
+                        onclick="toggleWishlist(event, {{ product.id }}, this)">
+                        {% if product.id in wishlist_ids %}
+                        <i class="fas fa-heart"></i>
+                        {% else %}
+                        <i class="far fa-heart"></i>
+                        {% endif %}
+                    </button>
+
+                    <img src="{{ product.image_url }}&auto=format&fit=crop&w=600&q=85"
+                         alt="{{ product.title }}">
+
+                    <div class="card-body">
+                        <p class="brand-label">{{ product.brand.name }}</p>
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-desc">{{ product.description|truncatechars:80 }}</p>
+
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
+
+                        {% if product.original_price %}
+<div class="price-wrap">
+    <span class="card-price">${{ product.price }}</span>
+    <span class="original-price">${{ product.original_price }}</span>
+    {% if product.discount_percentage %}
+    <span class="discount-badge">-{{ product.discount_percentage }}%</span>
+    {% endif %}
+</div>
+{% else %}
+<p class="card-price">${{ product.price }}</p>
+{% endif %}
+
+                        <div class="card-buttons" onclick="event.stopPropagation()">
+    {% if product.stock > 0 %}
+    <a href="/products/{{ product.id }}/add-to-cart/"
+       class="btn-cart"
+       onclick="addToCart(event, {{ product.id }})">
+       Add to Cart
+    </a>
+    <a href="/products/{{ product.id }}/" class="btn-buy">
+        Buy Now
+    </a>
+    {% else %}
+    <span class="btn-sold-out">Sold Out</span>
+    {% endif %}
+</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% else %}
+        <div class="no-products">
+            <i class="fas fa-gem"></i>
+            <h4>No Products Found</h4>
+            <p>Try a different category or brand filter</p>
+            <a href="/products/" class="btn-gold mt-3 d-inline-block" style="padding:12px 30px;">View All</a>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const scrollEl = document.getElementById('filterScroll');
+document.getElementById('scrollLeft').addEventListener('click', () => {
+    scrollEl.scrollBy({ left: -200, behavior: 'smooth' });
+});
+document.getElementById('scrollRight').addEventListener('click', () => {
+    scrollEl.scrollBy({ left: 200, behavior: 'smooth' });
+});
+
+function addToCart(event, productId) {
+    event.preventDefault();
+    fetch(`/products/${productId}/add-to-cart/`, {
+        method: 'GET',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+    })
+    .then(res => res.json())
+    .then(data => {
+        showToast(data.message);
+        if (data.cart_count !== undefined) {
+            document.querySelectorAll('.cart-nav-badge').forEach(badge => {
+                badge.textContent = data.cart_count;
+                badge.style.display = data.cart_count > 0 ? 'flex' : 'none';
+            });
+        }
+    })
+    .catch(() => { window.location.href = '/login/'; });
+}
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.style.cssText = `
+        position: fixed; bottom: 90px; right: 20px;
+        background: var(--gold); color: var(--black);
+        padding: 12px 24px; font-size: 0.8rem;
+        letter-spacing: 1px; z-index: 99999;
+        font-weight: 600;
+    `;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,396 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us – Aurette{% endblock %}
+
+{% block extra_css %}
+<style>
+.contact-hero {
+    padding: 140px 0 60px;
+    background: linear-gradient(to bottom, #111 0%, var(--black) 100%);
+    text-align: center;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.contact-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.contact-section { padding: 80px 0; }
+
+/* Info Cards */
+.info-card {
+    text-align: center;
+    padding: 35px 20px;
+    border: 1px solid #2A2A2A;
+    transition: all 0.35s ease;
+    height: 100%;
+}
+
+.info-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(201,168,76,0.15);
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.info-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Contact Form */
+.contact-form-wrap {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    padding: 40px;
+}
+
+.contact-form-wrap h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.form-label-gold {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-input-dark {
+    background: var(--dark-3);
+    border: 1px solid #333;
+    color: var(--white);
+    padding: 13px 16px;
+    font-size: 0.85rem;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.3s;
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.form-input-dark:focus { border-color: var(--gold); }
+.form-input-dark::placeholder { color: #555; }
+
+/* Map/Location */
+.location-wrap {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    padding: 30px;
+    height: 100%;
+}
+
+.location-wrap h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.location-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.location-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.location-item i {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.location-item h5 {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.location-item p {
+    font-size: 0.82rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #2A2A2A;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+@media (max-width: 768px) {
+    .contact-hero h1 { font-size: 2.5rem; }
+    .contact-form-wrap { padding: 25px; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ─── HERO ───────────────────────────────────────────────── -->
+<div class="contact-hero">
+    <p class="section-subtitle">Get In Touch</p>
+    <h1>Contact Us</h1>
+</div>
+
+<!-- ─── INFO CARDS ────────────────────────────────────────── -->
+<section style="padding: 60px 0; border-bottom: 1px solid #2A2A2A;">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-6 col-md-3 reveal">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Visit Us</h4>
+                    <p>Dubai Mall, Level 2<br>Dubai, UAE</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Call Us</h4>
+                    <p>+971 50 000 0000<br>Mon–Sat, 9am–9pm</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email Us</h4>
+                    <p>hello@aurette.com<br>Reply within 24hrs</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="info-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h4>WhatsApp</h4>
+                    <p>+971 50 000 0000<br>Quick responses</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── CONTACT FORM & LOCATION ───────────────────────────── -->
+<section class="contact-section">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- Contact Form -->
+            <div class="col-lg-7 reveal">
+                <div class="contact-form-wrap">
+                    <h3>Send Us a Message</h3>
+
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div style="background:rgba(46,204,113,0.15);border:1px solid #2ecc71;
+                                color:#2ecc71;padding:12px 16px;font-size:0.8rem;
+                                margin-bottom:20px;letter-spacing:1px;">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+<form method="POST" id="contactForm">
+    {% csrf_token %}
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label-gold">Your Name</label>
+            <input type="text" name="name" class="form-input-dark"
+                   placeholder="Full name" required>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label-gold">Email Address</label>
+            <input type="email" name="email" class="form-input-dark"
+                   placeholder="Your email" required>
+        </div>
+    </div>
+
+    <label class="form-label-gold">Subject</label>
+    <input type="text" name="subject" class="form-input-dark"
+           placeholder="How can we help?">
+
+    <label class="form-label-gold">Message</label>
+    <textarea name="message" class="form-input-dark"
+              rows="5" placeholder="Write your message here..."
+              required style="resize:none;"></textarea>
+
+    <button type="submit" class="btn-gold"
+            style="padding:14px 35px;font-size:0.8rem;letter-spacing:2px;">
+        Send Message
+    </button>
+</form>
+
+<!-- Toast Notification -->
+<div id="contactToast" style="
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: var(--dark-2);
+    border: 1px solid var(--gold);
+    padding: 20px 25px;
+    z-index: 99999;
+    max-width: 320px;
+    box-shadow: 0 10px 40px rgba(201,168,76,0.2);
+    animation: fadeInUp 0.4s ease;
+">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <i class="fas fa-check-circle" style="color:var(--gold);font-size:1.3rem;"></i>
+        <p style="color:var(--white);font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin:0;">
+            Message Sent!
+        </p>
+    </div>
+    <p style="color:var(--gray);font-size:0.78rem;letter-spacing:1px;margin:0;line-height:1.6;">
+        Thank you for contacting us. We'll get back to you within 24 hours. 💛
+    </p>
+    <div style="margin-top:12px;height:2px;background:#2A2A2A;border-radius:1px;">
+        <div id="toastProgress" style="height:100%;background:var(--gold);width:100%;transition:width 3s linear;"></div>
+    </div>
+</div>
+                </div>
+            </div>
+
+            <!-- Location Info -->
+            <div class="col-lg-5 reveal">
+                <div class="location-wrap">
+                    <h3>Find Us</h3>
+
+                    <div class="location-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h5>Store Location</h5>
+                            <p>Dubai Mall, Level 2, Fashion Avenue<br>Downtown Dubai, UAE</p>
+                        </div>
+                    </div>
+
+                    <div class="location-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h5>Opening Hours</h5>
+                            <p>Monday – Saturday: 10am – 10pm<br>Sunday: 12pm – 8pm</p>
+                        </div>
+                    </div>
+
+                    <div class="location-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h5>Phone & WhatsApp</h5>
+                            <p>+971 50 000 0000<br>+971 04 000 0000</p>
+                        </div>
+                    </div>
+
+                    <div class="location-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h5>Email</h5>
+                            <p>hello@aurette.com<br>support@aurette.com</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('', {
+        method: 'POST',
+        body: formData,
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(() => {
+        // Show toast
+        const toast = document.getElementById('contactToast');
+        toast.style.display = 'block';
+
+        // Start progress bar
+        setTimeout(() => {
+            document.getElementById('toastProgress').style.width = '0%';
+        }, 100);
+
+        // Reset form
+        document.getElementById('contactForm').reset();
+
+        // Hide toast after 3.5 seconds
+        setTimeout(() => {
+            toast.style.display = 'none';
+            document.getElementById('toastProgress').style.width = '100%';
+        }, 3500);
+    });
+});
+</script>
+{% endblock %}

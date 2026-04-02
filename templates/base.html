@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Aurette – Women's Jewellery{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Cairo:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #C9A84C;
+            --gold-light: #E8C96D;
+            --gold-dark: #A07830;
+            --black: #0A0A0A;
+            --dark: #111111;
+            --dark-2: #1A1A1A;
+            --dark-3: #222222;
+            --white: #FFFFFF;
+            --gray: #888888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ─── NAVBAR ─────────────────────────────────────── */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            padding: 15px 0;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10,10,10,0.97) !important;
+            padding: 10px 0;
+            box-shadow: 0 2px 20px rgba(201,168,76,0.15);
+        }
+
+        .navbar-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold) !important;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .navbar-brand span { color: var(--white); }
+
+        .nav-link {
+            color: var(--white) !important;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 8px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover { color: var(--gold) !important; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* ─── SEARCH BAR ─────────────────────────────────── */
+        .search-form {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #333;
+            border-radius: 2px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .search-form:focus-within { border-color: var(--gold); }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            font-size: 0.72rem;
+            padding: 7px 12px;
+            outline: none;
+            width: 180px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .search-input::placeholder { color: var(--gray); }
+
+        .search-btn {
+            background: transparent;
+            border: none;
+            color: var(--gold);
+            padding: 7px 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .search-btn:hover { background: var(--gold); color: var(--black); }
+
+        /* ─── NAV ICONS ──────────────────────────────────── */
+        .nav-icon {
+            position: relative;
+            color: var(--white) !important;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-icon:hover { color: var(--gold) !important; }
+
+    .nav-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--gold);
+    color: var(--black);
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+        /* ─── USER AVATAR ────────────────────────────────── */
+        .user-avatar {
+            width: 33px;
+            height: 33px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--black);
+            font-weight: 700;
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .user-greeting {
+            font-size: 0.72rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            margin-left: 7px;
+        }
+
+        /* ─── LANG BUTTON ────────────────────────────────── */
+        .lang-btn {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.62rem;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        .lang-btn:hover { background: var(--gold); color: var(--black); }
+
+        /* ─── GOOGLE TRANSLATE ───────────────────────────── */
+        #google_translate_element {
+            position: fixed;
+            bottom: -100px;
+            left: -100px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .goog-te-banner-frame { display: none !important; }
+        .goog-te-balloon-frame { display: none !important; }
+        .skiptranslate { display: none !important; }
+        body { top: 0 !important; }
+
+        /* ─── GOLD BUTTONS ───────────────────────────────── */
+        .btn-gold {
+            background: var(--gold);
+            color: var(--black);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-gold:hover::before { left: 100%; }
+        .btn-gold:hover {
+            background: var(--gold-light);
+            color: var(--black);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201,168,76,0.4);
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 12px 30px;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-outline-gold:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        /* ─── SECTION TITLES ─────────────────────────────── */
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .gold-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 40px;
+        }
+/* ─── SEARCH WRAP ────────────────────────────────────────── */
+.search-wrap {
+    position: relative;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    border-top: none;
+    z-index: 99998;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+}
+
+.search-suggestions.open { display: block; }
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.suggestion-item:last-child { border-bottom: none; }
+.suggestion-item:hover { background: var(--dark-3); }
+
+.suggestion-img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border: 1px solid #333;
+    flex-shrink: 0;
+}
+
+.suggestion-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin: 0 0 2px;
+}
+
+.suggestion-brand {
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.suggestion-price {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.suggestion-no-result {
+    padding: 15px;
+    font-size: 0.8rem;
+    color: var(--gray);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* ─── MOBILE SEARCH BAR ──────────────────────────────────── */
+.mobile-search-bar {
+    display: none;
+    background: var(--dark-2);
+    border-bottom: 1px solid #2A2A2A;
+    padding: 10px 0;
+    position: relative;
+    z-index: 9998;
+}
+
+.mobile-search-bar .search-form {
+    width: 100%;
+}
+
+.mobile-search-bar .search-input {
+    width: 100%;
+}
+
+.mobile-search-bar .search-suggestions {
+    position: relative;
+    top: 0;
+    border-top: 1px solid #2A2A2A;
+}
+        /* ─── PRODUCT BADGE ──────────────────────────────── */
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gold);
+            color: var(--black);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        /* ─── WISHLIST HEART ON CARD ─────────────────────── */
+        .wish-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid #444;
+    color: var(--white);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    z-index: 3;
+}
+
+.wish-btn:hover { background: rgba(231,76,60,0.9); border-color: #e74c3c; color: white; }
+.wish-btn.wishlisted { background: rgba(231,76,60,0.15); border-color: #e74c3c; }
+.wish-btn.wishlisted i { color: #e74c3c; }
+
+        /* ─── FOOTER ─────────────────────────────────────── */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid #2A2A2A;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 3px;
+        }
+
+        .footer-tagline {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--gray);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .footer-heading {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .footer-link:hover { color: var(--gold); }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            margin-right: 8px;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+
+        .footer-bottom {
+            border-top: 1px solid #2A2A2A;
+            padding-top: 25px;
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+
+        /* ─── MOBILE BOTTOM NAV ──────────────────────────── */
+       .mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--dark);
+    border-top: 1px solid #2A2A2A;
+    z-index: 9999;
+    padding: 6px 0 8px;
+}
+
+.mob-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-size: 0.55rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    padding: 4px 0;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    min-width: 0;
+    position: relative;
+}
+
+.mob-nav-item i {
+    font-size: 1.1rem;
+    margin-bottom: 3px;
+    display: block;
+}
+.mob-nav-item .nav-badge {
+    top: 4px;
+    right: 21px;
+    width: 13px;
+    height: 14px;
+    font-size: -1.48rem;
+}
+
+.mob-nav-item span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+}
+
+.mob-nav-item:hover,
+.mob-nav-item.active { color: var(--gold); }
+        /* More Menu */
+        .more-menu {
+            display: none;
+            position: fixed;
+            bottom: 65px;
+            left: 0;
+            right: 0;
+            background: var(--dark-2);
+            border-top: 1px solid #2A2A2A;
+            z-index: 9998;
+            padding: 15px 0;
+        }
+
+        .more-menu.open { display: block; }
+
+        .more-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 25px;
+            color: var(--white);
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .more-menu-item i {
+            color: var(--gold);
+            width: 20px;
+            text-align: center;
+        }
+
+        .more-menu-item:hover { background: var(--dark-3); color: var(--gold); }
+
+        /* Account Modal for mobile */
+        .account-modal {
+            display: none;
+            position: fixed;
+            bottom: 65px;
+            left: 0;
+            right: 0;
+            background: var(--dark-2);
+            border-top: 1px solid #2A2A2A;
+            z-index: 9998;
+            padding: 20px;
+        }
+
+        .account-modal.open { display: block; }
+
+        .account-modal-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--black);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+
+        /* ─── DROPDOWN MENU ──────────────────────────────── */
+        .dropdown-menu {
+            background: var(--dark-2);
+            border: 1px solid #2A2A2A;
+            border-radius: 0;
+            padding: 10px 0;
+            min-width: 160px;
+        }
+
+        .dropdown-item {
+            color: var(--white);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover { background: var(--dark-3); color: var(--gold); }
+
+        /* ─── MESSAGES ───────────────────────────────────── */
+        .messages-container {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 99999;
+            max-width: 300px;
+        }
+
+        .alert {
+            border-radius: 0;
+            border: none;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* ─── SCROLL REVEAL ──────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* ─── RTL Arabic ─────────────────────────────────── */
+        body.ar-mode {
+            direction: rtl;
+            font-family: 'Cairo', sans-serif !important;
+        }
+
+        body.ar-mode h1, body.ar-mode h2,
+        body.ar-mode h3, body.ar-mode h4,
+        body.ar-mode h5 { font-family: 'Cairo', sans-serif !important; }
+
+        body.ar-mode .navbar-nav { flex-direction: row-reverse; }
+        body.ar-mode .ms-auto { margin-left: 0 !important; margin-right: auto !important; }
+        body.ar-mode .footer-bottom { flex-direction: row-reverse; }
+        body.ar-mode .me-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+        body.ar-mode .ms-3 { margin-left: 0 !important; margin-right: 1rem !important; }
+        body.ar-mode .ms-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+
+        /* ─── MOBILE RESPONSIVE ──────────────────────────── */
+        @media (max-width: 768px) {
+            .mobile-bottom-nav { display: flex; }
+            body { padding-bottom: 70px; }
+            .navbar {
+                padding: 8px 0 !important;
+                background: rgba(10,10,10,0.97) !important;
+            }
+            .navbar-brand { font-size: 1.3rem !important; }
+            footer { margin-bottom: 70px; }
+            .desktop-only { display: none !important; }
+            .search-input { width: 130px; }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-only { display: none !important; }
+        }
+    </style>
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+<!-- ─── MESSAGES ──────────────────────────────────────── -->
+{% if messages %}
+<div class="messages-container">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- ─── NAVBAR ─────────────────────────────────────────── -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand" href="/">
+            AUR<span>ETTE</span>
+        </a>
+
+        <!-- ─── MOBILE NAVBAR (right side only) ─────────── -->
+        <div class="d-flex align-items-center gap-2 mobile-only">
+
+    <!-- Search Icon — toggles search bar -->
+    <button class="nav-icon border-0 bg-transparent" onclick="toggleMobileSearch()">
+        <i class="fas fa-search"></i>
+    </button>
+
+    <!-- Wishlist Icon -->
+    <a href="/wishlist/" class="nav-icon" style="position:relative;">
+        <i class="far fa-heart"></i>
+        {% if wishlist_count %}
+        <span class="nav-badge wishlist-nav-badge">{{ wishlist_count }}</span>
+        {% else %}
+        <span class="nav-badge wishlist-nav-badge" style="display:none;">0</span>
+        {% endif %}
+    </a>
+
+    <!-- Lang -->
+    <button class="lang-btn" id="langBtnMob" onclick="toggleArabic()">
+        AR | عربي
+    </button>
+</div>
+
+<!-- Mobile Search Bar (hidden by default) -->
+<div class="mobile-search-bar" id="mobileSearchBar">
+    <div class="container">
+        <form action="/search/" method="GET" class="search-form w-100" autocomplete="off"
+              style="width:100%!important;">
+            <input type="text" name="q" class="search-input" id="mobileSearchInput"
+                   placeholder="Search products..."
+                   style="width:100%;"
+                   oninput="liveSearch(this.value, 'mobileSuggestions')">
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <div class="search-suggestions" id="mobileSuggestions"></div>
+    </div>
+</div>
+        <!-- ─── DESKTOP NAVBAR ───────────────────────────── -->
+        <div class="collapse navbar-collapse desktop-only" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="/" id="nav-home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/products/" id="nav-products">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about/" id="nav-about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact/" id="nav-contact">Contact</a></li>
+            </ul>
+
+            <div class="d-flex align-items-center gap-3">
+
+                <!-- Search with Live Suggestions -->
+<div class="search-wrap" id="desktopSearchWrap">
+    <form action="/search/" method="GET" class="search-form" autocomplete="off">
+        <input type="text" name="q" class="search-input" id="desktopSearchInput"
+               placeholder="Search jewellery..."
+               value="{{ request.GET.q }}"
+               oninput="liveSearch(this.value, 'desktopSuggestions')">
+        <button type="submit" class="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+    <!-- Live Suggestions Dropdown -->
+    <div class="search-suggestions" id="desktopSuggestions"></div>
+</div>
+                <!-- Lang -->
+                <button class="lang-btn" id="langBtn" onclick="toggleArabic()">
+                    AR | عربي
+                </button>
+
+                
+                <!-- Wishlist -->
+<a href="/wishlist/" class="nav-icon" style="position:relative;">
+    <i class="far fa-heart"></i>
+    {% if wishlist_count %}
+    <span class="nav-badge wishlist-nav-badge">{{ wishlist_count }}</span>
+    {% else %}
+    <span class="nav-badge wishlist-nav-badge" style="display:none;">0</span>
+    {% endif %}
+</a>
+                <!-- Cart -->
+                <a href="/cart/" class="nav-icon">
+    <i class="fas fa-shopping-bag"></i>
+    {% if cart_count %}
+    <span class="nav-badge cart-nav-badge">{{ cart_count }}</span>
+    {% else %}
+    <span class="nav-badge cart-nav-badge" style="display:none;">0</span>
+    {% endif %}
+</a>
+                <!-- User Auth -->
+                {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <div class="d-flex align-items-center" data-bs-toggle="dropdown" style="cursor:pointer;">
+                        <div class="user-avatar">
+                            {{ user.first_name|first|upper }}{% if not user.first_name %}{{ user.username|first|upper }}{% endif %}
+                        </div>
+                        <span class="user-greeting">Hi, {{ user.first_name|default:user.username }}</span>
+                        <i class="fas fa-chevron-down ms-2" style="color:var(--gold);font-size:0.6rem;"></i>
+                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="/profile/"><i class="fas fa-user me-2"></i>My Profile</a></li>
+                        <li><a class="dropdown-item" href="/profile/"><i class="fas fa-box me-2"></i>My Orders</a></li>
+                        <li><a class="dropdown-item" href="/wishlist/"><i class="fas fa-heart me-2"></i>Wishlist</a></li>
+                        <li><hr class="dropdown-divider" style="border-color:#333;"></li>
+                        <li>
+                            <form method="POST" action="/logout/">
+                                {% csrf_token %}
+                                <button type="submit" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                {% else %}
+                <a href="/login/" class="btn-outline-gold" style="padding:7px 18px;font-size:0.68rem;">Login</a>
+                <a href="/register/" class="btn-gold" style="padding:7px 18px;font-size:0.68rem;">Register</a>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<!-- ─── GOOGLE TRANSLATE ───────────────────────────────── -->
+<div id="google_translate_element"></div>
+
+<!-- ─── PAGE CONTENT ───────────────────────────────────── -->
+{% block content %}
+{% endblock %}
+
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="footer-brand">AURETTE</div>
+                <div class="footer-tagline" id="footer-tagline">Women's Fine Jewellery</div>
+                <p style="color:var(--gray);font-size:0.8rem;margin-top:15px;line-height:1.8;" id="footer-desc">
+                    Crafting timeless jewellery for the modern woman. Each piece tells a story of elegance, craftsmanship, and enduring beauty.
+                </p>
+                <div class="footer-social mt-3">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <div class="footer-heading" id="footer-links-title">Quick Links</div>
+                <a href="/" class="footer-link" id="footer-home">Home</a>
+                <a href="/products/" class="footer-link" id="footer-products">Products</a>
+                <a href="/about/" class="footer-link" id="footer-about">About Us</a>
+                <a href="/contact/" class="footer-link" id="footer-contact">Contact</a>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <div class="footer-heading" id="footer-cat-title">Categories</div>
+                <a href="/products/?category=Necklaces" class="footer-link" id="footer-necklaces">Necklaces</a>
+                <a href="/products/?category=Rings" class="footer-link" id="footer-rings">Rings</a>
+                <a href="/products/?category=Earrings" class="footer-link" id="footer-earrings">Earrings</a>
+                <a href="/products/?category=Bangles" class="footer-link" id="footer-bangles">Bangles</a>
+                <a href="/products/?category=Bracelets" class="footer-link" id="footer-bracelets">Bracelets</a>
+                <a href="/products/?category=Bridal Sets" class="footer-link" id="footer-bridal">Bridal Sets</a>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="footer-heading" id="footer-contact-title">Contact Us</div>
+                <p style="color:var(--gray);font-size:0.8rem;line-height:2;">
+                    <i class="fas fa-map-marker-alt me-2" style="color:var(--gold);"></i> Dubai, United Arab Emirates<br>
+                    <i class="fas fa-envelope me-2" style="color:var(--gold);"></i> hello@aurette.com<br>
+                    <i class="fas fa-phone me-2" style="color:var(--gold);"></i> +971 50 000 0000
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
+            <span id="footer-copyright">© 2026 Aurette. All rights reserved.</span>
+            <span id="footer-credit">Crafted with <i class="fas fa-heart" style="color:var(--gold);"></i> for women who love jewellery</span>
+        </div>
+    </div>
+</footer>
+
+<!-- ─── MOBILE BOTTOM NAV ───────────────────────────────── -->
+<div class="mobile-bottom-nav">
+    <a href="/" class="mob-nav-item">
+        <i class="fas fa-home"></i>
+        <span id="mob-home">Home</span>
+    </a>
+    <a href="/products/" class="mob-nav-item">
+        <i class="fas fa-gem"></i>
+        <span id="mob-shop">Shop</span>
+    </a>
+    <a href="/cart/" class="mob-nav-item" style="position:relative;">
+    <i class="fas fa-shopping-bag"></i>
+    {% if cart_count %}
+    <span class="nav-badge cart-nav-badge">{{ cart_count }}</span>
+    {% else %}
+    <span class="nav-badge cart-nav-badge" style="display:none;">0</span>
+    {% endif %}
+    <span id="mob-cart">Cart</span>
+</a>
+    <a href="/profile/" class="mob-nav-item">
+        <i class="fas fa-box"></i>
+        <span id="mob-orders">Orders</span>
+    </a>
+    <!-- Account Button -->
+    <button class="mob-nav-item" onclick="toggleAccountMenu()">
+        {% if user.is_authenticated %}
+        <div class="user-avatar" style="width:26px;height:26px;font-size:0.7rem;margin-bottom:3px;">
+            {{ user.first_name|first|upper }}{% if not user.first_name %}{{ user.username|first|upper }}{% endif %}
+        </div>
+        {% else %}
+        <i class="fas fa-user"></i>
+        {% endif %}
+        <span id="mob-account">Account</span>
+    </button>
+    <!-- More -->
+    <button class="mob-nav-item" onclick="toggleMoreMenu()">
+        <i class="fas fa-ellipsis-h"></i>
+        <span id="mob-more">More</span>
+    </button>
+</div>
+
+<!-- ─── MOBILE MORE MENU ──────────────────────────────── -->
+<div class="more-menu" id="moreMenu">
+    <a href="/about/" class="more-menu-item">
+        <i class="fas fa-info-circle"></i> About Us
+    </a>
+    <a href="/contact/" class="more-menu-item">
+        <i class="fas fa-envelope"></i> Contact Us
+    </a>
+    <a href="/wishlist/" class="more-menu-item">
+        <i class="fas fa-heart"></i> Wishlist
+    </a>
+    <div style="padding:0 25px 10px;">
+        <button class="lang-btn w-100" onclick="toggleArabic()" style="text-align:center;">
+            AR | عربي
+        </button>
+    </div>
+</div>
+
+<!-- ─── MOBILE ACCOUNT MENU ──────────────────────────── -->
+<div class="account-modal" id="accountModal">
+    {% if user.is_authenticated %}
+    <div class="text-center mb-3">
+        <div class="account-modal-avatar">
+            {{ user.first_name|first|upper }}{% if not user.first_name %}{{ user.username|first|upper }}{% endif %}
+        </div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);">
+            {{ user.get_full_name|default:user.username }}
+        </p>
+        <p style="font-size:0.75rem;color:var(--gray);">{{ user.email }}</p>
+    </div>
+    <a href="/profile/" class="more-menu-item">
+        <i class="fas fa-user"></i> My Profile
+    </a>
+    <a href="/profile/" class="more-menu-item">
+        <i class="fas fa-box"></i> My Orders
+    </a>
+    <div style="padding:10px 25px;">
+        <form method="POST" action="/logout/">
+            {% csrf_token %}
+            <button type="submit" class="btn-outline-gold w-100" style="padding:10px;">
+                Logout
+            </button>
+        </form>
+    </div>
+    {% else %}
+    <div class="text-center p-3">
+        <i class="fas fa-user" style="font-size:2.5rem;color:var(--gold);display:block;margin-bottom:15px;"></i>
+        <p style="color:var(--gray);font-size:0.85rem;margin-bottom:15px;">Sign in to your account</p>
+        <div class="d-flex gap-2">
+            <a href="/login/" class="btn-outline-gold flex-1 text-center" style="padding:10px;flex:1;">Login</a>
+            <a href="/register/" class="btn-gold flex-1 text-center" style="padding:10px;flex:1;">Register</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    // ─── AUTO CLOSE DJANGO MESSAGES ───────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+    const alerts = document.querySelectorAll('.messages-container .alert');
+    alerts.forEach(alert => {
+        setTimeout(() => {
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+            setTimeout(() => alert.remove(), 300);
+        }, 3000);
+    });
+});
+</script>
+
+<!-- Google Translate -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'ar',
+        autoDisplay: false,
+    }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+<script>
+// ─── NAVBAR SCROLL ────────────────────────────────────
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ─── SCROLL REVEAL ────────────────────────────────────
+function revealOnScroll() {
+    document.querySelectorAll('.reveal').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+            el.classList.add('active');
+        }
+    });
+}
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+// ─── MORE MENU ────────────────────────────────────────
+function toggleMoreMenu() {
+    const menu = document.getElementById('moreMenu');
+    const account = document.getElementById('accountModal');
+    account.classList.remove('open');
+    menu.classList.toggle('open');
+}
+
+// ─── ACCOUNT MENU ─────────────────────────────────────
+function toggleAccountMenu() {
+    const account = document.getElementById('accountModal');
+    const menu = document.getElementById('moreMenu');
+    menu.classList.remove('open');
+    account.classList.toggle('open');
+}
+
+// Close menus when clicking outside
+document.addEventListener('click', function(e) {
+    const moreMenu = document.getElementById('moreMenu');
+    const accountModal = document.getElementById('accountModal');
+    const mobileNav = document.querySelector('.mobile-bottom-nav');
+    if (mobileNav && !mobileNav.contains(e.target)) {
+        moreMenu.classList.remove('open');
+        accountModal.classList.remove('open');
+    }
+});
+
+// ─── WISHLIST TOGGLE ──────────────────────────────────
+function toggleWishlist(event, productId, btn) {
+    event.preventDefault();
+    event.stopPropagation();
+    fetch(`/products/${productId}/wishlist/`, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(res => res.json())
+    .then(data => {
+        const icon = btn.querySelector('i');
+        if (data.status === 'added') {
+            icon.classList.replace('far', 'fas');
+            btn.classList.add('wishlisted');
+        } else {
+            icon.classList.replace('fas', 'far');
+            btn.classList.remove('wishlisted');
+        }
+        // ─── Update wishlist count in navbar instantly ──────
+        updateWishlistCount(data.status);
+        showToast(data.message);
+    })
+    .catch(() => window.location.href = '/login/');
+}
+
+function updateWishlistCount(action) {
+    // Update all wishlist badges in navbar
+    const badges = document.querySelectorAll('.wishlist-nav-badge');
+    badges.forEach(badge => {
+        let count = parseInt(badge.textContent) || 0;
+        if (action === 'added') count++;
+        else if (action === 'removed') count = Math.max(0, count - 1);
+        if (count > 0) {
+            badge.textContent = count;
+            badge.style.display = 'flex';
+        } else {
+            badge.style.display = 'none';
+        }
+    });
+}
+// ─── TOAST ────────────────────────────────────────────
+function showToast(msg) {
+    const t = document.createElement('div');
+    t.style.cssText = `position:fixed;bottom:90px;right:20px;background:var(--gold);
+        color:var(--black);padding:12px 24px;font-size:0.8rem;
+        letter-spacing:1px;z-index:99999;font-weight:600;`;
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+}
+
+// ─── TRANSLATIONS ─────────────────────────────────────
+let isArabic = false;
+
+const translations = {
+    en: {
+        'nav-home': 'Home', 'nav-products': 'Products',
+        'nav-about': 'About', 'nav-contact': 'Contact',
+        'footer-tagline': "Women's Fine Jewellery",
+        'footer-desc': 'Crafting timeless jewellery for the modern woman.',
+        'footer-links-title': 'Quick Links', 'footer-cat-title': 'Categories',
+        'footer-contact-title': 'Contact Us',
+        'footer-home': 'Home', 'footer-products': 'Products',
+        'footer-about': 'About Us', 'footer-contact': 'Contact',
+        'footer-necklaces': 'Necklaces', 'footer-rings': 'Rings',
+        'footer-earrings': 'Earrings', 'footer-bangles': 'Bangles',
+        'footer-bracelets': 'Bracelets', 'footer-bridal': 'Bridal Sets',
+        'footer-copyright': '© 2026 Aurette. All rights reserved.',
+        'mob-home': 'Home', 'mob-shop': 'Shop',
+        'mob-cart': 'Cart', 'mob-orders': 'Orders',
+        'mob-account': 'Account', 'mob-more': 'More',
+        'langBtn': 'AR | عربي'
+    },
+    ar: {
+        'nav-home': 'الرئيسية', 'nav-products': 'المنتجات',
+        'nav-about': 'من نحن', 'nav-contact': 'اتصل بنا',
+        'footer-tagline': 'مجوهرات نسائية راقية',
+        'footer-desc': 'نصنع مجوهرات خالدة للمرأة العصرية.',
+        'footer-links-title': 'روابط سريعة', 'footer-cat-title': 'الفئات',
+        'footer-contact-title': 'اتصل بنا',
+        'footer-home': 'الرئيسية', 'footer-products': 'المنتجات',
+        'footer-about': 'من نحن', 'footer-contact': 'اتصل بنا',
+        'footer-necklaces': 'قلائد', 'footer-rings': 'خواتم',
+        'footer-earrings': 'أقراط', 'footer-bangles': 'أساور',
+        'footer-bracelets': 'أساور يد', 'footer-bridal': 'طقم عروس',
+        'footer-copyright': '© 2026 أوريت. جميع الحقوق محفوظة.',
+        'mob-home': 'الرئيسية', 'mob-shop': 'تسوق',
+        'mob-cart': 'السلة', 'mob-orders': 'طلباتي',
+        'mob-account': 'حسابي', 'mob-more': 'المزيد',
+        'langBtn': 'EN | English'
+    }
+};
+// ─── MOBILE SEARCH TOGGLE ─────────────────────────────────
+function toggleMobileSearch() {
+    const bar = document.getElementById('mobileSearchBar');
+    if (bar.style.display === 'block') {
+        bar.style.display = 'none';
+    } else {
+        bar.style.display = 'block';
+        setTimeout(() => {
+            document.getElementById('mobileSearchInput').focus();
+        }, 100);
+    }
+}
+
+// ─── LIVE SEARCH SUGGESTIONS ──────────────────────────────
+let searchTimeout = null;
+
+function liveSearch(query, containerId) {
+    const container = document.getElementById(containerId);
+    clearTimeout(searchTimeout);
+
+    if (query.length < 2) {
+        container.classList.remove('open');
+        container.innerHTML = '';
+        return;
+    }
+
+    searchTimeout = setTimeout(() => {
+        fetch(`/search/suggestions/?q=${encodeURIComponent(query)}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.results.length === 0) {
+                container.innerHTML = `
+                    <div class="suggestion-no-result">
+                        No products found for "${query}"
+                    </div>`;
+            } else {
+                container.innerHTML = data.results.map(p => `
+                    <a href="/products/${p.id}/" class="suggestion-item">
+                        <img src="${p.image}&w=100&q=70&auto=format&fit=crop"
+                             class="suggestion-img" alt="${p.title}">
+                        <div style="flex:1;min-width:0;">
+                            <p class="suggestion-title">${p.title}</p>
+                            <p class="suggestion-brand">${p.brand}</p>
+                        </div>
+                        <span class="suggestion-price">$${p.price}</span>
+                    </a>
+                `).join('');
+            }
+            container.classList.add('open');
+        });
+    }, 300);
+}
+
+// Close suggestions when clicking outside
+document.addEventListener('click', function(e) {
+    const desktopWrap = document.getElementById('desktopSearchWrap');
+    const mobileSugg = document.getElementById('mobileSuggestions');
+    const mobileBar = document.getElementById('mobileSearchBar');
+
+    if (desktopWrap && !desktopWrap.contains(e.target)) {
+        const s = document.getElementById('desktopSuggestions');
+        if (s) { s.classList.remove('open'); s.innerHTML = ''; }
+    }
+
+    if (mobileSugg && !mobileBar.contains(e.target)) {
+        mobileSugg.classList.remove('open');
+        mobileSugg.innerHTML = '';
+    }
+});
+function addToCart(productId) {
+    fetch(`/products/${productId}/add-to-cart/`, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(res => res.json())
+    .then(data => {
+        showToast(data.message);
+        // Update all cart badges instantly
+        if (data.cart_count !== undefined) {
+            document.querySelectorAll('.cart-nav-badge').forEach(badge => {
+                badge.textContent = data.cart_count;
+                badge.style.display = data.cart_count > 0 ? 'flex' : 'none';
+            });
+        }
+    })
+    .catch(() => window.location.href = '/login/');
+}
+function updateCartCount(action) {
+    const badges = document.querySelectorAll('.cart-nav-badge');
+    badges.forEach(badge => {
+        let count = parseInt(badge.textContent) || 0;
+        if (action === 'added') count++;
+        else if (action === 'removed') count = Math.max(0, count - 1);
+        if (count > 0) {
+            badge.textContent = count;
+            badge.style.display = 'flex';
+        } else {
+            badge.style.display = 'none';
+        }
+    });
+}
+function toggleArabic() {
+    isArabic = !isArabic;
+    if (isArabic) {
+        document.cookie = 'googtrans=/en/ar; path=/';
+        document.cookie = 'googtrans=/en/ar; path=/; domain=.' + location.hostname;
+        location.reload();
+    } else {
+        document.cookie = 'googtrans=/en/en; path=/';
+        document.cookie = 'googtrans=/en/en; path=/; domain=.' + location.hostname;
+        document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        document.cookie = 'googtrans=; path=/; domain=.' + location.hostname + '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        location.reload();
+    }
+}
+
+window.addEventListener('load', function() {
+    if (document.cookie.includes('googtrans=/en/ar')) {
+        isArabic = true;
+        document.body.classList.add('ar-mode');
+        document.documentElement.setAttribute('lang', 'ar');
+        const t = translations['ar'];
+        Object.keys(t).forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = t[id];
+        });
+        // Update both language buttons
+        ['langBtn', 'langBtnMob'].forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.textContent = 'EN | English';
+        });
+    }
+});
+</script>
+
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

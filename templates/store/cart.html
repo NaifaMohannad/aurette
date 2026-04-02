@@ -1,0 +1,348 @@
+{% extends 'base.html' %}
+{% block title %}Cart – Aurette{% endblock %}
+
+{% block extra_css %}
+<style>
+.cart-section {
+    padding: 120px 0 80px;
+    min-height: 80vh;
+}
+
+.cart-section h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 15px;
+    border-bottom: 1px solid #2A2A2A;
+    text-align: left;
+}
+
+.cart-table td {
+    padding: 20px 15px;
+    border-bottom: 1px solid #2A2A2A;
+    vertical-align: middle;
+}
+
+.cart-product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #2A2A2A;
+}
+
+.cart-product-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    margin-bottom: 4px;
+}
+
+.cart-product-brand {
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.cart-price {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.qty-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #333;
+    width: fit-content;
+}
+
+.qty-form button {
+    background: var(--dark-3);
+    border: none;
+    color: var(--white);
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.qty-form button:hover { background: var(--gold); color: var(--black); }
+
+.qty-form input {
+    background: transparent;
+    border: none;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    color: var(--white);
+    width: 45px;
+    height: 32px;
+    text-align: center;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.remove-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: var(--gray);
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+}
+
+.remove-btn:hover { border-color: #e74c3c; color: #e74c3c; }
+
+.order-summary {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    padding: 30px;
+    position: sticky;
+    top: 100px;
+}
+
+.order-summary h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.82rem;
+    color: var(--gray);
+}
+
+.summary-row.total {
+    border-top: 1px solid #2A2A2A;
+    padding-top: 15px;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.summary-row.total span:last-child { color: var(--gold); font-size: 1.2rem; }
+
+.empty-cart {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-cart i {
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.empty-cart h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.empty-cart p {
+    color: var(--gray);
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+    .cart-section { padding: 100px 0 60px; }
+    .cart-table thead { display: none; }
+    .cart-table td { display: block; padding: 10px 15px; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="cart-section">
+    <div class="container">
+        <p class="section-subtitle">Your Selection</p>
+        <h1>Shopping Cart</h1>
+
+        {% if cart_items %}
+        <div class="row g-4">
+
+            <!-- Cart Items -->
+            <div class="col-lg-8">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="{{ item.product.image_url }}&w=150&q=80&auto=format&fit=crop"
+                                         class="cart-product-img" alt="{{ item.product.title }}">
+                                    <div>
+                                        <p class="cart-product-brand">{{ item.product.brand.name }}</p>
+                                        <p class="cart-product-title">{{ item.product.title }}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cart-price">${{ item.product.price }}</td>
+                            <td>
+                                <form method="POST" action="/cart/update/{{ item.id }}/" class="qty-form">
+                                    {% csrf_token %}
+                                    <button type="button" onclick="changeQty(this, -1)">−</button>
+                                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+                                    <button type="button" onclick="changeQty(this, 1)">+</button>
+                                </form>
+                            </td>
+                            <td class="cart-price">${{ item.get_total }}</td>
+                            <td>
+                                <a href="/cart/remove/{{ item.id }}/">
+                                    <button class="remove-btn">Remove</button>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="mt-4">
+                    <a href="/products/" class="btn-outline-gold">← Continue Shopping</a>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-lg-4">
+                <div class="order-summary">
+                    <h4>Order Summary</h4>
+
+                    {% for item in cart_items %}
+                    <div class="summary-row">
+                        <span>{{ item.product.title|truncatechars:25 }} ×{{ item.quantity }}</span>
+                        <span>${{ item.get_total }}</span>
+                    </div>
+                    {% endfor %}
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>${{ subtotal }}</span>
+                    </div>
+
+                    <!-- Coupon -->
+                    <div style="margin:20px 0;padding:15px;border:1px solid #2A2A2A;">
+                        <p style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">
+                            Coupon Code
+                        </p>
+                        <form method="POST" class="d-flex gap-2">
+                            {% csrf_token %}
+                            <input type="text" name="coupon_code"
+                                   value="{{ coupon_code }}"
+                                   placeholder="Enter code"
+                                   style="background:var(--dark-3);border:1px solid #333;
+                                          color:var(--white);padding:8px 12px;font-size:0.8rem;
+                                          outline:none;flex:1;">
+                            <button type="submit" class="btn-gold" style="padding:8px 16px;font-size:0.7rem;">
+                                Apply
+                            </button>
+                        </form>
+                        {% if coupon_message == 'success' %}
+                        <p style="color:#2ecc71;font-size:0.75rem;margin-top:8px;">✅ 20% discount applied!</p>
+                        {% elif coupon_message == 'invalid' %}
+                        <p style="color:#e74c3c;font-size:0.75rem;margin-top:8px;">❌ Invalid coupon code</p>
+                        {% endif %}
+                        {% if not coupon_code %}
+                        <p style="color:var(--gray);font-size:0.7rem;margin-top:8px;">
+                            Use <span style="color:var(--gold);font-weight:600;">AURETTE20</span> for 20% off!
+                        </p>
+                        {% endif %}
+                    </div>
+
+                    {% if discount > 0 %}
+                    <div class="summary-row" style="color:#2ecc71;">
+                        <span>Discount ({{ discount }}%)</span>
+                        <span>-${{ discount_amount|floatformat:2 }}</span>
+                    </div>
+                    {% endif %}
+
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span style="color:var(--gold);">
+                            {% if total >= 500 %}Free{% else %}$25.00{% endif %}
+                        </span>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span>${{ total|floatformat:2 }}</span>
+                    </div>
+
+                    <a href="/checkout/" class="btn-gold w-100 d-block text-center mt-4"
+                       style="padding:15px;">
+                        Proceed to Checkout
+                    </a>
+
+                    <div class="text-center mt-3">
+                        <p style="font-size:0.7rem;color:var(--gray);letter-spacing:1px;">
+                            <i class="fas fa-lock me-1" style="color:var(--gold);"></i>
+                            Secure Checkout
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% else %}
+        <div class="empty-cart">
+            <i class="fas fa-shopping-bag"></i>
+            <h3>Your Cart is Empty</h3>
+            <p>Looks like you haven't added anything yet</p>
+            <a href="/products/" class="btn-gold" style="padding:14px 35px;">Start Shopping</a>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function changeQty(btn, change) {
+    const input = btn.parentElement.querySelector('input[name="quantity"]');
+    const newVal = parseInt(input.value) + change;
+    if (newVal >= 1) {
+        input.value = newVal;
+        input.form.submit();
+    }
+}
+</script>
+{% endblock %}
+
+

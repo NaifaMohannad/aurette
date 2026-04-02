@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block title %}Register – Aurette{% endblock %}
+
+{% block extra_css %}
+<style>
+.auth-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1208 100%);
+}
+
+.auth-card {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 520px;
+}
+
+.auth-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.auth-tagline {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.auth-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-label-gold {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-input-dark {
+    background: var(--dark-3);
+    border: 1px solid #333;
+    color: var(--white);
+    padding: 13px 16px;
+    font-size: 0.85rem;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.3s;
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.form-input-dark:focus { border-color: var(--gold); }
+.form-input-dark::placeholder { color: #555; }
+
+.auth-link {
+    color: var(--gold);
+    font-size: 0.8rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: opacity 0.3s;
+}
+
+.auth-link:hover { opacity: 0.7; color: var(--gold); }
+
+.auth-divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #2A2A2A;
+}
+
+.auth-divider span {
+    background: var(--dark-2);
+    padding: 0 15px;
+    font-size: 0.7rem;
+    color: var(--gray);
+    letter-spacing: 2px;
+    position: relative;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-card">
+
+        <div class="auth-logo">AURETTE</div>
+        <p class="auth-tagline">Fine Jewellery</p>
+        <h2 class="auth-title">Create Account</h2>
+
+        {% if messages %}
+        {% for message in messages %}
+        <div style="background:{% if 'error' in message.tags %}rgba(231,76,60,0.15){% else %}rgba(46,204,113,0.15){% endif %};
+                    border:1px solid {% if 'error' in message.tags %}#e74c3c{% else %}#2ecc71{% endif %};
+                    color:{% if 'error' in message.tags %}#e74c3c{% else %}#2ecc71{% endif %};
+                    padding:12px 16px;font-size:0.8rem;margin-bottom:20px;letter-spacing:1px;">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="row g-3">
+                <div class="col-6">
+                    <label class="form-label-gold">First Name</label>
+                    <input type="text" name="first_name" class="form-input-dark"
+                           placeholder="First name" required>
+                </div>
+                <div class="col-6">
+                    <label class="form-label-gold">Last Name</label>
+                    <input type="text" name="last_name" class="form-input-dark"
+                           placeholder="Last name" required>
+                </div>
+            </div>
+
+            <label class="form-label-gold">Username</label>
+            <input type="text" name="username" class="form-input-dark"
+                   placeholder="Choose a username" required>
+
+            <label class="form-label-gold">Email Address</label>
+            <input type="email" name="email" class="form-input-dark"
+                   placeholder="Your email address" required>
+
+            <label class="form-label-gold">Password</label>
+            <input type="password" name="password1" class="form-input-dark"
+                   placeholder="Create a password" required>
+
+            <label class="form-label-gold">Confirm Password</label>
+            <input type="password" name="password2" class="form-input-dark"
+                   placeholder="Repeat your password" required>
+
+            <button type="submit" class="btn-gold w-100"
+                    style="padding:14px;font-size:0.8rem;letter-spacing:2px;margin-bottom:20px;">
+                Create Account
+            </button>
+        </form>
+
+        <div class="auth-divider"><span>OR</span></div>
+
+        <div class="text-center mt-3">
+            <p style="color:var(--gray);font-size:0.8rem;letter-spacing:1px;">
+                Already have an account?
+                <a href="/login/" class="auth-link ms-2">Login</a>
+            </p>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

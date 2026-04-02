@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% block title %}Wishlist – Aurette{% endblock %}
+
+{% block extra_css %}
+<style>
+.wishlist-section {
+    padding: 120px 0 80px;
+    min-height: 80vh;
+}
+
+.wishlist-section h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.wishlist-card {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    position: relative;
+}
+
+.wishlist-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(201,168,76,0.2);
+}
+
+.wishlist-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.wishlist-card:hover img { transform: scale(1.05); }
+
+.remove-wish {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.7);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+    z-index: 3;
+}
+
+.remove-wish:hover {
+    background: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+}
+
+.empty-wishlist {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-wishlist i {
+    font-size: 4rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.empty-wishlist h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.empty-wishlist p {
+    color: var(--gray);
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="wishlist-section">
+    <div class="container">
+        <p class="section-subtitle">Your Saved Items</p>
+        <h1>My Wishlist</h1>
+
+        {% if wishlist_items %}
+        <div class="row g-4">
+            {% for item in wishlist_items %}
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="wishlist-card">
+                    <!-- Remove Button -->
+                    <button class="remove-wish"
+                        onclick="toggleWishlist(event, {{ item.product.id }}, this)">
+                        <i class="fas fa-times"></i>
+                    </button>
+
+                    <a href="/products/{{ item.product.id }}/">
+                        <img src="{{ item.product.image_url }}&auto=format&fit=crop&w=600&q=85"
+                             alt="{{ item.product.title }}">
+                    </a>
+                    <div class="p-3">
+                        <p style="font-size:0.6rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">
+                            {{ item.product.brand.name }}
+                        </p>
+                        <h5 style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);margin-bottom:8px;">
+                            {{ item.product.title }}
+                        </h5>
+                        <p style="color:var(--gold);font-weight:600;font-size:1rem;margin-bottom:12px;">
+                            ${{ item.product.price }}
+                        </p>
+                        <div class="d-flex gap-2">
+                            <a href="/products/{{ item.product.id }}/add-to-cart/"
+                               class="btn-gold flex-1 text-center d-block"
+                               style="padding:8px;font-size:0.65rem;flex:1;">
+                                Add to Cart
+                            </a>
+                            <a href="/products/{{ item.product.id }}/"
+                               class="btn-outline-gold text-center d-block"
+                               style="padding:8px 12px;font-size:0.65rem;">
+                                View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% else %}
+        <div class="empty-wishlist">
+            <i class="fas fa-heart"></i>
+            <h3>Your Wishlist is Empty</h3>
+            <p>Save items you love by clicking the heart icon on any product</p>
+            <a href="/products/" class="btn-gold" style="padding:14px 35px;">
+                Browse Products
+            </a>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function toggleWishlist(event, productId, btn) {
+    event.preventDefault();
+    event.stopPropagation();
+    fetch(`/products/${productId}/wishlist/`, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === 'removed') {
+            btn.closest('.col-6').remove();
+        }
+        showToast(data.message);
+    })
+    .catch(() => window.location.href = '/login/');
+}
+
+function showToast(msg) {
+    const t = document.createElement('div');
+    t.style.cssText = `position:fixed;bottom:90px;right:20px;background:var(--gold);
+        color:var(--black);padding:12px 24px;font-size:0.8rem;
+        letter-spacing:1px;z-index:99999;font-weight:600;`;
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% block title %}My Profile – Aurette{% endblock %}
+
+{% block extra_css %}
+<style>
+.profile-section {
+    padding: 120px 0 80px;
+    min-height: 80vh;
+}
+
+.profile-card {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    padding: 35px;
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.profile-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.profile-email {
+    font-size: 0.8rem;
+    color: var(--gray);
+    letter-spacing: 1px;
+}
+
+.order-card {
+    background: var(--dark-3);
+    border: 1px solid #2A2A2A;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+.order-card:hover { border-color: var(--gold); }
+
+.order-id {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.order-date {
+    font-size: 0.7rem;
+    color: var(--gray);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.order-status {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 0;
+}
+
+.status-pending { background: rgba(241,196,15,0.15); color: #f1c40f; border: 1px solid #f1c40f; }
+.status-processing { background: rgba(52,152,219,0.15); color: #3498db; border: 1px solid #3498db; }
+.status-delivered { background: rgba(46,204,113,0.15); color: #2ecc71; border: 1px solid #2ecc71; }
+.status-cancelled { background: rgba(231,76,60,0.15); color: #e74c3c; border: 1px solid #e74c3c; }
+
+.order-total {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2A2A2A;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="profile-section">
+    <div class="container">
+        <p class="section-subtitle">Your Account</p>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--white);margin-bottom:40px;">
+            My Profile
+        </h1>
+
+        <div class="row g-4">
+
+            <!-- Profile Info -->
+            <div class="col-lg-4">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        {{ user.first_name|first|upper }}{% if not user.first_name %}{{ user.username|first|upper }}{% endif %}
+                    </div>
+                    <h2 class="profile-name">
+                        {{ user.get_full_name|default:user.username }}
+                    </h2>
+                    <p class="profile-email">{{ user.email }}</p>
+
+                    <div style="margin-top:25px;padding-top:20px;border-top:1px solid #2A2A2A;">
+                        <div style="font-size:0.75rem;color:var(--gray);letter-spacing:1px;margin-bottom:10px;">
+                            <i class="fas fa-box me-2" style="color:var(--gold);"></i>
+                            Total Orders: <span style="color:var(--white);">{{ orders|length }}</span>
+                        </div>
+                        <div style="font-size:0.75rem;color:var(--gray);letter-spacing:1px;">
+                            <i class="fas fa-calendar me-2" style="color:var(--gold);"></i>
+                            Member Since: <span style="color:var(--white);">{{ user.date_joined|date:"F Y" }}</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:25px;">
+                        <form method="POST" action="/logout/">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-outline-gold w-100" style="padding:12px;">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders -->
+            <div class="col-lg-8">
+                <h3 class="section-heading">My Orders</h3>
+
+                {% if orders %}
+                {% for order in orders %}
+                <div class="order-card">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                        <div>
+                            <p class="order-id">Order #{{ order.id }}</p>
+                            <p class="order-date">{{ order.created_at|date:"F j, Y" }}</p>
+                            <span class="order-status status-{{ order.status }}">
+                                {{ order.status|title }}
+                            </span>
+                        </div>
+                        <div class="text-end">
+                            <p class="order-total">${{ order.total }}</p>
+                            <p style="font-size:0.75rem;color:var(--gray);margin-top:5px;">
+                                {{ order.items.count }} item{{ order.items.count|pluralize }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Order Items -->
+                    <div style="margin-top:15px;padding-top:15px;border-top:1px solid #2A2A2A;">
+                        {% for item in order.items.all %}
+                        <div style="font-size:0.78rem;color:var(--gray);margin-bottom:5px;">
+                            <span style="color:var(--white);">{{ item.product.title }}</span>
+                            × {{ item.quantity }}
+                            <span style="color:var(--gold);float:right;">${{ item.price }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div style="margin-top:12px;font-size:0.75rem;color:var(--gray);">
+                        <i class="fas fa-map-marker-alt me-2" style="color:var(--gold);"></i>
+                        {{ order.address }}
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% else %}
+                <div style="text-align:center;padding:60px 20px;border:1px solid #2A2A2A;">
+                    <i class="fas fa-box-open" style="font-size:3rem;color:var(--gold);display:block;margin-bottom:15px;"></i>
+                    <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);margin-bottom:10px;">
+                        No Orders Yet
+                    </p>
+                    <p style="color:var(--gray);font-size:0.85rem;margin-bottom:20px;">
+                        Start shopping and your orders will appear here
+                    </p>
+                    <a href="/products/" class="btn-gold" style="padding:12px 30px;">Shop Now</a>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

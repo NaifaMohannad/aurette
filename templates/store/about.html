@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+{% block title %}About Us – Aurette{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ─── HERO ───────────────────────────────────────────────── */
+.about-hero {
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.about-hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+/* ─── STORY ──────────────────────────────────────────────── */
+.story-section { padding: 80px 0; }
+
+.story-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border: 1px solid #2A2A2A;
+}
+
+.story-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.story-text p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 2;
+    margin-bottom: 15px;
+}
+
+/* ─── VALUES ─────────────────────────────────────────────── */
+.values-section {
+    padding: 80px 0;
+    background: var(--dark-2);
+    border-top: 1px solid #2A2A2A;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.value-card {
+    text-align: center;
+    padding: 35px 20px;
+    border: 1px solid #2A2A2A;
+    transition: all 0.35s ease;
+}
+
+.value-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(201,168,76,0.15);
+}
+
+.value-card i {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.value-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.value-card p {
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ─── STATS ──────────────────────────────────────────────── */
+.stats-section { padding: 80px 0; }
+
+.stat-item {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #2A2A2A;
+    transition: border-color 0.3s;
+}
+
+.stat-item:hover { border-color: var(--gold); }
+
+.stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+}
+
+/* ─── TEAM ───────────────────────────────────────────────── */
+.team-section {
+    padding: 80px 0;
+    background: var(--dark-2);
+    border-top: 1px solid #2A2A2A;
+}
+
+.team-card {
+    text-align: center;
+    border: 1px solid #2A2A2A;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.team-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(201,168,76,0.15);
+}
+
+.team-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.team-card:hover img { transform: scale(1.05); }
+
+.team-card-body { padding: 20px; }
+
+.team-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.team-role {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+@media (max-width: 768px) {
+    .about-hero { height: 40vh; }
+    .story-img { height: 300px; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ─── HERO ───────────────────────────────────────────────── -->
+<div class="about-hero">
+    <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1920&q=90&auto=format&fit=crop"
+         alt="About Aurette">
+    <div class="about-hero-overlay"></div>
+    <div class="about-hero-content">
+        <p class="section-subtitle">Our Story</p>
+        <h1>About Aurette</h1>
+    </div>
+</div>
+
+<!-- ─── STORY ─────────────────────────────────────────────── -->
+<section class="story-section">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 reveal">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=90&auto=format&fit=crop"
+                     alt="Our Story" class="story-img">
+            </div>
+            <div class="col-lg-6 reveal">
+                <div class="story-text">
+                    <p class="section-subtitle" style="text-align:left;">Est. 2020</p>
+                    <h2>Crafting Beauty,<br>One Piece at a Time</h2>
+                    <p>Aurette was born from a passion for fine jewellery and a desire to make luxury accessible. Founded in Dubai, we set out to create a brand that celebrates the beauty, strength, and elegance of women through timeless jewellery.</p>
+                    <p>Every piece in our collection is carefully crafted by master artisans using the finest materials — from ethically sourced diamonds to pure 22K gold. We believe jewellery is not just an accessory; it's a story, a memory, and a legacy.</p>
+                    <p>Today, Aurette serves thousands of customers across the Middle East and beyond, bringing the finest jewellery experience to women who deserve nothing but the best.</p>
+                    <a href="/products/" class="btn-gold mt-3 d-inline-block" style="padding:14px 35px;">
+                        Explore Collection
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── STATS ─────────────────────────────────────────────── -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-item">
+                    <div class="stat-number">5K+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Unique Designs</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Luxury Brands</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── VALUES ────────────────────────────────────────────── -->
+<section class="values-section">
+    <div class="container">
+        <p class="section-subtitle">What We Stand For</p>
+        <h2 class="section-title">Our Values</h2>
+        <div class="gold-divider"></div>
+        <div class="row g-4">
+            <div class="col-6 col-md-3 reveal">
+                <div class="value-card">
+                    <i class="fas fa-gem"></i>
+                    <h4>Quality</h4>
+                    <p>Only the finest materials and master craftsmanship in every piece</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Sustainability</h4>
+                    <p>Ethically sourced materials and responsible business practices</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h4>Passion</h4>
+                    <p>Every piece is created with love and dedication to our craft</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Community</h4>
+                    <p>Building a community of women who celebrate each other</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── TEAM ───────────────────────────────────────────────── -->
+<section class="team-section">
+    <div class="container">
+        <p class="section-subtitle">The People Behind Aurette</p>
+        <h2 class="section-title">Our Team</h2>
+        <div class="gold-divider"></div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3 reveal">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=90&auto=format&fit=crop"
+                         alt="Sarah Al Rashid">
+                    <div class="team-card-body">
+                        <p class="team-name">Sarah Al Rashid</p>
+                        <p class="team-role">Founder & CEO</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=90&auto=format&fit=crop"
+                         alt="Layla Hassan">
+                    <div class="team-card-body">
+                        <p class="team-name">Layla Hassan</p>
+                        <p class="team-role">Head of Design</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=90&auto=format&fit=crop"
+                         alt="Noor Ahmed">
+                    <div class="team-card-body">
+                        <p class="team-name">Noor Ahmed</p>
+                        <p class="team-role">Master Jeweller</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=90&auto=format&fit=crop"
+                         alt="Fatima Al Zahra">
+                    <div class="team-card-body">
+                        <p class="team-name">Fatima Al Zahra</p>
+                        <p class="team-role">Customer Relations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

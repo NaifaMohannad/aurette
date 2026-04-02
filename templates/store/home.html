@@ -1,0 +1,968 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Aurette – Luxury Women's Jewellery{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ─── HERO VIDEO CAROUSEL ────────────────────────────────── */
+.hero-slide {
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay { display: none; }
+
+.carousel-indicators { bottom: 30px; }
+
+.carousel-indicators button {
+    width: 25px;
+    height: 2px;
+    background: var(--gold);
+    opacity: 0.4;
+    border: none;
+    margin: 0 4px;
+    border-radius: 0;
+    transition: all 0.3s;
+}
+
+.carousel-indicators button.active { opacity: 1; width: 50px; }
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    opacity: 1;
+}
+
+/* ─── MARQUEE ────────────────────────────────────────────── */
+.marquee-strip {
+    background: var(--gold);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+}
+
+.marquee-content span {
+    color: var(--black);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 40px;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ─── CARD LIFT EFFECT ───────────────────────────────────── */
+.card-lift {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
+}
+
+.card-lift:hover {
+    transform: translateY(-12px) !important;
+    box-shadow: 0 20px 50px rgba(201, 168, 76, 0.25) !important;
+    border-color: var(--gold) !important;
+}
+
+/* ─── CATEGORY IMAGE CARDS ───────────────────────────────── */
+.cat-card {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #2A2A2A;
+    text-decoration: none;
+    display: block;
+    border-radius: 2px;
+}
+
+.cat-card .cat-img-default,
+.cat-card .cat-img-hover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease, transform 0.6s ease;
+}
+
+.cat-card .cat-img-hover { opacity: 0; }
+
+.cat-card:hover .cat-img-default { opacity: 0; transform: scale(1.05); }
+.cat-card:hover .cat-img-hover { opacity: 1; transform: scale(1.05); }
+
+.cat-card .cat-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.05) 60%);
+    z-index: 2;
+    transition: background 0.3s;
+}
+
+.cat-card:hover .cat-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%);
+}
+
+.cat-card .cat-info {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 3;
+    transition: bottom 0.3s ease;
+}
+
+.cat-card:hover .cat-info { bottom: 20px; }
+
+.cat-card .cat-name {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0 0 4px;
+}
+
+.cat-card .cat-gender {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+/* ─── CATEGORY MODAL ─────────────────────────────────────── */
+.cat-modal .modal-content {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    border-radius: 0;
+}
+
+.cat-modal .modal-header {
+    border-bottom: 1px solid #2A2A2A;
+    padding: 20px 25px;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+}
+
+.cat-modal .modal-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.8rem !important;
+    color: var(--gold) !important;
+    letter-spacing: 2px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.cat-modal .btn-close { filter: invert(1); }
+
+.cat-modal .modal-body {
+    padding: 25px;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.cat-modal .modal-product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.cat-modal .modal-product-card {
+    background: var(--dark-3);
+    border: 1px solid #2A2A2A;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+
+.cat-modal .modal-product-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(201,168,76,0.2);
+}
+
+.cat-modal .modal-product-card:hover .modal-product-img { transform: scale(1.05); }
+
+.cat-modal .modal-product-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.cat-modal .modal-product-price {
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.cat-modal-viewall {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 20px !important;
+    padding: 12px 30px !important;
+    background: var(--gold) !important;
+    color: var(--black) !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s !important;
+}
+
+.cat-modal-viewall:hover {
+    background: var(--gold-light) !important;
+    color: var(--black) !important;
+}
+
+@media (max-width: 768px) {
+    .cat-modal .modal-title { font-size: 1.2rem !important; }
+    .cat-modal .modal-dialog { margin: 10px !important; }
+    .cat-modal .modal-product-img { height: 120px !important; }
+    .cat-modal .modal-body { padding: 15px !important; max-height: 65vh; }
+    .cat-modal .modal-product-title { font-size: 0.85rem !important; }
+    .cat-modal-viewall { padding: 10px 20px !important; font-size: 0.65rem !important; }
+}
+/* ─── PRODUCT CARDS ──────────────────────────────────────── */
+.product-card {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img { transform: scale(1.05); }
+
+.product-card .card-body {
+    padding: 20px;
+    background: var(--dark-2);
+}
+
+.product-card .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.product-card .card-price {
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* ─── OFFER CARDS ────────────────────────────────────────── */
+.offer-card {
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #2A2A2A;
+}
+
+.offer-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.offer-card:hover img { transform: scale(1.05); }
+
+.offer-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 70%);
+}
+
+.offer-content {
+    position: absolute;
+    bottom: 35px;
+    left: 35px;
+    z-index: 2;
+}
+
+.offer-tag {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.offer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+/* ─── BRAND CARDS ────────────────────────────────────────── */
+.brand-card {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    border: 1px solid #2A2A2A;
+    border-radius: 2px;
+}
+
+.brand-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: brightness(0.55);
+}
+
+.brand-card:hover img { transform: scale(1.08); filter: brightness(0.35); }
+
+.brand-card-info {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding: 15px;
+    text-align: center;
+}
+
+.brand-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.brand-card-tagline {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.brand-shop-btn {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 5px 14px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.brand-card:hover .brand-shop-btn {
+    opacity: 1;
+    transform: translateY(0);
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* ─── PROMISE CARDS ──────────────────────────────────────── */
+.promise-card {
+    padding: 40px 20px;
+    border: 1px solid #2A2A2A;
+    text-align: center;
+}
+
+.promise-card i {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.promise-card h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.promise-card p {
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ─── NEWSLETTER ─────────────────────────────────────────── */
+.newsletter-section {
+    background: var(--dark-2);
+    padding: 80px 0;
+    border-top: 1px solid #2A2A2A;
+}
+
+.newsletter-input {
+    background: var(--dark-3);
+    border: 1px solid #333;
+    color: var(--white);
+    padding: 14px 25px;
+    font-size: 0.85rem;
+    width: 350px;
+    outline: none;
+    border-radius: 0;
+    transition: border-color 0.3s;
+}
+
+.newsletter-input:focus { border-color: var(--gold); }
+.newsletter-input::placeholder { color: var(--gray); }
+
+/* ─── MOBILE ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .offer-card { height: 250px; }
+    .newsletter-input { width: 100%; }
+    .brand-card { height: 150px; }
+    .cat-card { height: 170px; }
+    .product-card img { height: 200px; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- 1. HERO VIDEO CAROUSEL ────────────────────────────────── -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <div class="hero-slide">
+                <video class="hero-bg" autoplay muted loop playsinline>
+                    <source src="{% static 'videos/hero3.mp4' %}" type="video/mp4">
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="hero-slide">
+                <video class="hero-bg" autoplay muted loop playsinline>
+                    <source src="{% static 'videos/hero5.mp4' %}" type="video/mp4">
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="hero-slide">
+                <video class="hero-bg" autoplay muted loop playsinline>
+                    <source src="{% static 'videos/hero2.mp4' %}" type="video/mp4">
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+        </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <i class="fas fa-chevron-left" style="color:var(--gold);font-size:1.2rem;"></i>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <i class="fas fa-chevron-right" style="color:var(--gold);font-size:1.2rem;"></i>
+    </button>
+</div>
+
+<!-- 2. MARQUEE ───────────────────────────────────────────── -->
+<div class="marquee-strip">
+    <div class="marquee-content">
+        <span><i class="fas fa-gem"></i> Free Shipping Over $500</span>
+        <span><i class="fas fa-shield-alt"></i> Certified Authentic</span>
+        <span><i class="fas fa-undo"></i> 30-Day Returns</span>
+        <span><i class="fas fa-crown"></i> Exclusive Members Offers</span>
+        <span><i class="fas fa-gem"></i> Handcrafted With Love</span>
+        <span><i class="fas fa-shield-alt"></i> Lifetime Warranty</span>
+        <span><i class="fas fa-gem"></i> Free Shipping Over $500</span>
+        <span><i class="fas fa-shield-alt"></i> Certified Authentic</span>
+        <span><i class="fas fa-undo"></i> 30-Day Returns</span>
+        <span><i class="fas fa-crown"></i> Exclusive Members Offers</span>
+    </div>
+</div>
+
+<!-- 3. CATEGORIES ────────────────────────────────────────── -->
+<section class="py-5 mt-2">
+    <div class="container">
+        <p class="section-subtitle">Browse By</p>
+        <h2 class="section-title">Shop By Category</h2>
+        <div class="gold-divider"></div>
+        <div class="row g-3">
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="#" class="cat-card card-lift" onclick="openCatModal('Necklaces'); return false;">
+                    <img class="cat-img-default" src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400&q=90&auto=format&fit=crop" alt="Necklaces">
+                    <img class="cat-img-hover" src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&q=90&auto=format&fit=crop" alt="Necklaces hover">
+                    <div class="cat-overlay"></div>
+                    <div class="cat-info">
+                        <p class="cat-name">Necklaces</p>
+                        <span class="cat-gender">Female</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="#" class="cat-card card-lift" onclick="openCatModal('Rings'); return false;">
+                    <img class="cat-img-default" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=90&auto=format&fit=crop" alt="Rings">
+                    <img class="cat-img-hover" src="https://images.unsplash.com/photo-1627293509201-cd0c780043e6?w=600&auto=format&fit=crop&q=60" alt="Rings hover">
+                    <div class="cat-overlay"></div>
+                    <div class="cat-info">
+                        <p class="cat-name">Rings</p>
+                        <span class="cat-gender">Unisex</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="#" class="cat-card card-lift" onclick="openCatModal('Earrings'); return false;">
+                    <img class="cat-img-default" src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=400&q=90&auto=format&fit=crop" alt="Earrings">
+                    <img class="cat-img-hover" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&q=90&auto=format&fit=crop" alt="Earrings hover">
+                    <div class="cat-overlay"></div>
+                    <div class="cat-info">
+                        <p class="cat-name">Earrings</p>
+                        <span class="cat-gender">Female</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="#" class="cat-card card-lift" onclick="openCatModal('Bangles'); return false;">
+                    <img class="cat-img-default" src="https://images.unsplash.com/photo-1586878340506-af074f2ee999?q=80&w=870&auto=format&fit=crop" alt="Bangles">
+                    <img class="cat-img-hover" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&auto=format&fit=crop&q=60" alt="Bangles hover">
+                    <div class="cat-overlay"></div>
+                    <div class="cat-info">
+                        <p class="cat-name">Bangles</p>
+                        <span class="cat-gender">Female</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="#" class="cat-card card-lift" onclick="openCatModal('Bracelets'); return false;">
+                    <img class="cat-img-default" src="https://images.unsplash.com/photo-1767921777873-81818b812a4d?q=80&w=870&auto=format&fit=crop" alt="Bracelets">
+                    <img class="cat-img-hover" src="https://plus.unsplash.com/premium_photo-1709033404514-c3953af680b4?q=80&w=387&auto=format&fit=crop" alt="Bracelets hover">
+                    <div class="cat-overlay"></div>
+                    <div class="cat-info">
+                        <p class="cat-name">Bracelets</p>
+                        <span class="cat-gender">Unisex</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="#" class="cat-card card-lift" onclick="openCatModal('Bridal Sets'); return false;">
+                    <img class="cat-img-default" src="https://images.unsplash.com/photo-1704136404616-0fe61c322633?w=600&auto=format&fit=crop&q=60" alt="Bridal Sets">
+                    <img class="cat-img-hover" src="https://images.unsplash.com/photo-1726509698494-14467502ecf8?w=600&auto=format&fit=crop&q=60" alt="Bridal hover">
+                    <div class="cat-overlay"></div>
+                    <div class="cat-info">
+                        <p class="cat-name">Bridal Sets</p>
+                        <span class="cat-gender">Female</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CATEGORY MODAL -->
+<div class="modal fade cat-modal" id="categoryModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title" id="catModalTitle">Category</h5>
+                    <p id="catModalDesc" style="font-size:0.8rem;color:var(--gray);margin:5px 0 0;"></p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3" id="catModalProducts"></div>
+                <div class="text-center mt-4">
+                    <a href="#" id="catModalViewAll" class="cat-modal-viewall">
+                        View All in This Category →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 4. SPECIAL OFFERS ────────────────────────────────────── -->
+<section class="py-5">
+    <div class="container">
+        <p class="section-subtitle">Exclusive Deals</p>
+        <h2 class="section-title">Special Offers</h2>
+        <div class="gold-divider"></div>
+        <div class="row g-4">
+            <div class="col-md-6 reveal">
+                <div class="offer-card card-lift">
+                    <img src="https://images.unsplash.com/photo-1651160670627-2896ddf7822f?w=600&auto=format&fit=crop&q=60" alt="Bridal">
+                    <div class="offer-overlay"></div>
+                    <div class="offer-content">
+                        <p class="offer-tag">Limited Time — 20% Off</p>
+                        <h3 class="offer-title">Bridal<br>Collection</h3>
+                        <a href="/products/?category=Bridal Sets" class="btn-gold">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 reveal">
+                <div class="offer-card card-lift">
+                    <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&auto=format&fit=crop&q=60" alt="Diamond">
+                    <div class="offer-overlay"></div>
+                    <div class="offer-content">
+                        <p class="offer-tag">New Arrival</p>
+                        <h3 class="offer-title">Diamond<br>Series</h3>
+                        <a href="/products/?brand=Diamonique" class="btn-gold">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. SHOP BY BRAND ─────────────────────────────────────── -->
+<section class="py-5" style="background: var(--dark-2);">
+    <div class="container">
+        <p class="section-subtitle">Our Brands</p>
+        <h2 class="section-title">Shop By Brand</h2>
+        <div class="gold-divider"></div>
+        <div class="row g-3">
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="/products/?brand=Diamonique" class="brand-card card-lift">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80&auto=format&fit=crop" alt="Diamonique">
+                    <div class="brand-card-info">
+                        <div class="brand-card-name">Diamonique</div>
+                        <div class="brand-card-tagline">Diamond Elegance</div>
+                        <span class="brand-shop-btn">Shop →</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="/products/?brand=Roseva" class="brand-card card-lift">
+                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=400&q=80&auto=format&fit=crop" alt="Roseva">
+                    <div class="brand-card-info">
+                        <div class="brand-card-name">Roseva</div>
+                        <div class="brand-card-tagline">Blush Rose Gold</div>
+                        <span class="brand-shop-btn">Shop →</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="/products/?brand=Goldara" class="brand-card card-lift">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80&auto=format&fit=crop" alt="Goldara">
+                    <div class="brand-card-info">
+                        <div class="brand-card-name">Goldara</div>
+                        <div class="brand-card-tagline">Pure Gold Craft</div>
+                        <span class="brand-shop-btn">Shop →</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="/products/?brand=Velvetine" class="brand-card card-lift">
+                    <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400&q=80&auto=format&fit=crop" alt="Velvetine">
+                    <div class="brand-card-info">
+                        <div class="brand-card-name">Velvetine</div>
+                        <div class="brand-card-tagline">Royal Bridal</div>
+                        <span class="brand-shop-btn">Shop →</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="/products/?brand=Luminos" class="brand-card card-lift">
+                    <img src="https://png.pngtree.com/thumb_back/fw800/background/20220419/pngtree-luminous-gold-necklace-and-earring-set-pearl-jewel-lustre-photo-image_2145121.jpg" alt="Luminos">
+                    <div class="brand-card-info">
+                        <div class="brand-card-name">Luminos</div>
+                        <div class="brand-card-tagline">Vibrant Gems</div>
+                        <span class="brand-shop-btn">Shop →</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 reveal">
+                <a href="/products/?brand=Silvique" class="brand-card card-lift">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/030/412/553/small_2x/silver-necklace-on-a-solid-color-background-in-close-up-ai-generative-photo.jpeg" alt="Silvique">
+                    <div class="brand-card-info">
+                        <div class="brand-card-name">Silvique</div>
+                        <div class="brand-card-tagline">Modern Silver</div>
+                        <span class="brand-shop-btn">Shop →</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- 6. FEATURED COLLECTION ───────────────────────────────── -->
+<section class="py-5">
+    <div class="container">
+        <p class="section-subtitle">Handpicked For You</p>
+        <h2 class="section-title">Featured Collection</h2>
+        <div class="gold-divider"></div>
+        <div class="row g-4">
+            {% for product in featured_products %}
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <a href="/products/{{ product.id }}/" class="text-decoration-none">
+                    <div class="product-card card-lift" style="position:relative;">
+
+                        <!-- Badge -->
+                        {% if product.stock == 0 %}
+                        <span class="product-badge" style="background:#555;">Sold Out</span>
+                        {% else %}
+                        <span class="product-badge">Featured</span>
+                        {% endif %}
+                        {% if product.discount_percentage and product.stock > 0 %}
+                        <span class="product-badge" style="background:#e74c3c;top:45px;">
+                            -{{ product.discount_percentage }}%
+                        </span>
+                        {% endif %}
+
+                        <!-- Wishlist Heart -->
+                        <button class="wish-btn {% if product.id in wishlist_ids %}wishlisted{% endif %}"
+                            onclick="event.preventDefault(); event.stopPropagation(); toggleWishlist(event, {{ product.id }}, this)">
+                            {% if product.id in wishlist_ids %}
+                            <i class="fas fa-heart"></i>
+                            {% else %}
+                            <i class="far fa-heart"></i>
+                            {% endif %}
+                        </button>
+
+                        <!-- Image -->
+                        <img src="{{ product.image_url }}&auto=format&fit=crop&w=600&q=85"
+                             alt="{{ product.title }}">
+
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <p style="font-size:0.65rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;">
+                                {{ product.brand.name }}
+                            </p>
+                            <h5 class="card-title">{{ product.title }}</h5>
+
+                            <!-- Price -->
+                            {% if product.original_price %}
+                            <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
+                                <span class="card-price" style="margin:0;">${{ product.price }}</span>
+                                <span style="font-size:0.8rem;color:var(--gray);text-decoration:line-through;">
+                                    ${{ product.original_price }}
+                                </span>
+                                {% if product.discount_percentage %}
+                                <span style="background:#e74c3c;color:white;font-size:0.6rem;font-weight:700;padding:2px 6px;">
+                                    -{{ product.discount_percentage }}%
+                                </span>
+                                {% endif %}
+                            </div>
+                            {% else %}
+                            <p class="card-price">${{ product.price }}</p>
+                            {% endif %}
+
+                            <!-- Button -->
+                            {% if product.stock > 0 %}
+                            <button class="btn-gold w-100" style="padding:10px;"
+                                onclick="event.preventDefault(); addToCart({{ product.id }})">
+                                Add to Cart
+                            </button>
+                            {% else %}
+                            <button class="btn-gold w-100"
+                                style="padding:10px;opacity:0.5;cursor:not-allowed;"
+                                disabled>
+                                Sold Out
+                            </button>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-5">
+            <a href="/products/" class="btn-outline-gold">View All Products</a>
+        </div>
+    </div>
+</section>
+
+<!-- 7. PROMISE ───────────────────────────────────────────── -->
+<section class="py-5" style="background: var(--dark-2);">
+    <div class="container">
+        <p class="section-subtitle">Why Aurette</p>
+        <h2 class="section-title">The Aurette Promise</h2>
+        <div class="gold-divider"></div>
+        <div class="row g-4">
+            <div class="col-6 col-md-3 reveal">
+                <div class="promise-card card-lift">
+                    <i class="fas fa-certificate"></i>
+                    <h5>100% Authentic</h5>
+                    <p>Every piece certified and verified for quality</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="promise-card card-lift">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h5>Free Shipping</h5>
+                    <p>Free delivery on all orders above $500</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="promise-card card-lift">
+                    <i class="fas fa-undo-alt"></i>
+                    <h5>Easy Returns</h5>
+                    <p>30-day hassle-free return policy</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="promise-card card-lift">
+                    <i class="fas fa-headset"></i>
+                    <h5>24/7 Support</h5>
+                    <p>Always here to help you choose</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. NEWSLETTER ────────────────────────────────────────── -->
+<section class="newsletter-section">
+    <div class="container text-center">
+        <p class="section-subtitle">Stay Updated</p>
+        <h2 class="section-title">Join the Aurette Circle</h2>
+        <p style="color:var(--gray);font-size:0.85rem;margin-bottom:30px;letter-spacing:1px;">
+            Subscribe for exclusive offers and new arrivals
+        </p>
+        <form class="d-flex justify-content-center gap-3 flex-wrap">
+            {% csrf_token %}
+            <input type="email" placeholder="Enter your email address" class="newsletter-input">
+            <button type="submit" class="btn-gold">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+
+// ─── CATEGORY DATA FROM DATABASE ──────────────────────────
+const categoryData = {
+    {% for cat in categories %}
+    "{{ cat.name }}": {
+        desc: "{{ cat.description|default:''|escapejs }}",
+        products: [
+            {% for p in cat.product_set.all|slice:":4" %}
+            {
+                id: {{ p.id }},
+                title: "{{ p.title|escapejs }}",
+                price: "${{ p.price }}",
+                img: "{{ p.image_url|escapejs }}",
+                brand: "{{ p.brand.name|escapejs }}"
+            }{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        ]
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+};
+
+function openCatModal(categoryName) {
+    const data = categoryData[categoryName] || { desc: '', products: [] };
+    document.getElementById('catModalTitle').textContent = 'Aurette ' + categoryName;
+    const descEl = document.getElementById('catModalDesc');
+    if (descEl) descEl.textContent = data.desc;
+    document.getElementById('catModalViewAll').href = '/products/?category=' + encodeURIComponent(categoryName);
+    const container = document.getElementById('catModalProducts');
+    container.innerHTML = data.products.map(p => `
+        <div class="col-6 col-md-3">
+            <div class="modal-product-card" style="cursor:pointer;"
+                 onclick="window.location.href='/products/${p.id}/'">
+                <img src="${p.img.split('?')[0]}?w=400&q=85&auto=format&fit=crop"
+                     alt="${p.title}" class="modal-product-img">
+                <div class="p-3">
+                    <p style="font-size:0.6rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">${p.brand}</p>
+                    <p class="modal-product-title">${p.title}</p>
+                    <p class="modal-product-price">${p.price}</p>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    new bootstrap.Modal(document.getElementById('categoryModal')).show();
+}
+
+// ─── ADD TO CART ──────────────────────────────────────────
+function addToCart(productId) {
+    fetch(`/products/${productId}/add-to-cart/`, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(res => res.json())
+    .then(data => {
+        showToast(data.message);
+        if (data.cart_count !== undefined) {
+            document.querySelectorAll('.cart-nav-badge').forEach(badge => {
+                badge.textContent = data.cart_count;
+                badge.style.display = data.cart_count > 0 ? 'flex' : 'none';
+            });
+        }
+    })
+    .catch(() => window.location.href = '/login/');
+}
+function showToast(msg) {
+    const t = document.createElement('div');
+    t.style.cssText = `position:fixed;bottom:90px;right:20px;background:var(--gold);
+        color:var(--black);padding:12px 24px;font-size:0.8rem;
+        letter-spacing:1px;z-index:99999;font-weight:600;`;
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+}
+</script>
+{% endblock %}

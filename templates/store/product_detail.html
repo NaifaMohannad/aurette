@@ -1,0 +1,545 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.title }} – Aurette{% endblock %}
+
+{% block extra_css %}
+<style>
+.detail-section { padding: 120px 0 60px; }
+.product-img-main { width: 100%; height: 500px; object-fit: cover; border: 1px solid #2a2a2a; }
+.product-brand { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.product-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--white); margin-bottom: 15px; line-height: 1.2; }
+.product-price { font-size: 1.8rem; color: var(--gold); font-weight: 600; margin-bottom: 20px; }
+.product-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.9; margin-bottom: 25px; }
+.rating-wrap { display: flex; align-items: center; gap: 6px; margin-bottom: 20px; }
+.rating-wrap i { color: var(--gold); font-size: 0.9rem; }
+.rating-wrap .rating-text { font-size: 0.8rem; color: var(--gray); }
+.variants-section { margin-bottom: 22px; }
+.variant-label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+.variant-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.variant-btn { background: transparent; border: 1px solid #333; color: var(--white); font-size: 0.7rem; letter-spacing: 1px; padding: 8px 16px; cursor: pointer; transition: all 0.3s; }
+.variant-btn:hover, .variant-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.1); }
+.qty-wrap { display: flex; align-items: center; border: 1px solid #333; width: fit-content; margin-bottom: 25px; }
+.qty-btn { background: var(--dark-3); border: none; color: var(--white); width: 40px; height: 40px; cursor: pointer; font-size: 1rem; transition: all 0.3s; }
+.qty-btn:hover { background: var(--gold); color: var(--black); }
+.qty-input { background: transparent; border: none; border-left: 1px solid #333; border-right: 1px solid #333; color: var(--white); width: 50px; height: 40px; text-align: center; font-size: 0.9rem; outline: none; }
+.action-buttons { display: flex; gap: 12px; margin-bottom: 30px; }
+.btn-add-cart { flex: 1; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; padding: 15px; cursor: pointer; transition: all 0.3s; text-align: center; }
+.btn-add-cart:hover { background: var(--gold); color: var(--black); }
+.btn-buy-now { flex: 1; background: var(--gold); border: 1px solid var(--gold); color: var(--black); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; padding: 15px; cursor: pointer; transition: all 0.3s; font-weight: 600; text-align: center; text-decoration: none; display: block; }
+.btn-buy-now:hover { background: var(--gold-light); color: var(--black); }
+.product-meta { border-top: 1px solid #2a2a2a; padding-top: 20px; font-size: 0.78rem; color: var(--gray); line-height: 2; }
+.product-meta span { color: var(--gold); }
+.reviews-section { padding: 60px 0; border-top: 1px solid #2a2a2a; }
+.review-card { background: var(--dark-2); border: 1px solid #2a2a2a; padding: 20px; margin-bottom: 15px; transition: border-color 0.3s; }
+.review-card:hover { border-color: var(--gold); }
+.reviewer-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 3px; }
+.review-date { font-size: 0.7rem; color: var(--gray); letter-spacing: 1px; margin-bottom: 8px; }
+.review-comment { font-size: 0.82rem; color: var(--gray); line-height: 1.7; margin: 0; }
+.review-form-wrap { background: var(--dark-2); border: 1px solid #2a2a2a; padding: 30px; margin-top: 30px; }
+.review-form-wrap h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 20px; }
+.form-label-dark { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; display: block; }
+.form-control-dark { background: var(--dark-3); border: 1px solid #333; color: var(--white); padding: 12px 16px; font-size: 0.85rem; outline: none; width: 100%; transition: border-color 0.3s; border-radius: 0; resize: none; }
+.form-control-dark:focus { border-color: var(--gold); }
+.star-picker { display: flex; gap: 8px; margin-bottom: 20px; }
+.star-picker i { font-size: 1.5rem; color: #444; cursor: pointer; transition: color 0.2s; }
+.star-picker i.lit { color: var(--gold); }
+.recommended-section { padding: 60px 0; border-top: 1px solid #2a2a2a; }
+.rec-card { background: var(--dark-2); border: 1px solid #2a2a2a; overflow: hidden; transition: all 0.35s ease; cursor: pointer; text-decoration: none; display: block; }
+.rec-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(201,168,76,0.2); }
+.rec-card img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.4s; }
+.rec-card:hover img { transform: scale(1.05); }
+.rec-body { padding: 15px; }
+.rec-brand { font-size: 0.6rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+.rec-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--white); margin-bottom: 5px; }
+.rec-price { color: var(--gold); font-size: 0.9rem; font-weight: 600; }
+
+/* ─── UPLOAD AREAS ───────────────────────────────────────── */
+.upload-area { border: 2px dashed #333; padding: 25px; text-align: center; cursor: pointer; transition: all 0.3s; margin-bottom: 15px; background: var(--dark-3); }
+.upload-area:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+.upload-area i { font-size: 2rem; color: var(--gold); display: block; margin-bottom: 8px; }
+.upload-area p { color: var(--white); font-size: 0.85rem; margin: 0 0 4px; }
+.upload-area span { color: var(--gray); font-size: 0.7rem; letter-spacing: 1px; }
+.photo-previews { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+.photo-preview-item { position: relative; width: 80px; height: 80px; }
+.photo-preview-item img { width: 100%; height: 100%; object-fit: cover; border: 1px solid #333; }
+.photo-preview-item .remove-preview { position: absolute; top: -6px; right: -6px; background: #e74c3c; color: white; border: none; border-radius: 50%; width: 18px; height: 18px; font-size: 0.6rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+#videoPreview video { width: 100%; max-height: 200px; margin-top: 10px; border: 1px solid #333; }
+
+/* ─── REVIEW MEDIA ───────────────────────────────────────── */
+.review-media { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.review-media img { width: 80px; height: 80px; object-fit: cover; border: 1px solid #333; cursor: pointer; transition: all 0.3s; }
+.review-media img:hover { border-color: var(--gold); transform: scale(1.05); }
+.review-video-thumb { width: 80px; height: 80px; background: var(--dark-3); border: 1px solid #333; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+.review-video-thumb:hover { border-color: var(--gold); }
+.review-video-thumb i { font-size: 1.5rem; color: var(--gold); margin-bottom: 4px; }
+.review-video-thumb span { font-size: 0.6rem; color: var(--gray); letter-spacing: 1px; }
+
+/* ─── MEDIA MODAL ────────────────────────────────────────── */
+.media-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 99999; align-items: center; justify-content: center; }
+.media-modal-overlay.open { display: flex; }
+.media-modal-content { max-width: 90vw; max-height: 90vh; position: relative; }
+.media-modal-content img, .media-modal-content video { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+.media-modal-close { position: absolute; top: -40px; right: 0; background: transparent; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+@media (max-width: 768px) {
+    .detail-section { padding: 100px 0 40px; }
+    .product-img-main { height: 300px; }
+    .product-title { font-size: 1.8rem; }
+    .action-buttons { flex-direction: column; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<section class="detail-section">
+    <div class="container">
+        <div class="row g-5">
+
+            <!-- Image -->
+            <div class="col-lg-6">
+                <img src="{{ product.image_url }}&auto=format&fit=crop&w=800&q=90"
+                     alt="{{ product.title }}" class="product-img-main">
+            </div>
+
+            <!-- Info -->
+            <div class="col-lg-6">
+                <p class="product-brand">{{ product.brand.name }} · {{ product.category.name }}</p>
+                <h1 class="product-title">{{ product.title }}</h1>
+
+                <!-- Rating -->
+                <div class="rating-wrap">
+                    {% if avg_rating >= 1 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% if avg_rating >= 2 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% if avg_rating >= 3 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% if avg_rating >= 4 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% if avg_rating >= 5 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    <span class="rating-text">{{ avg_rating }} ({{ review_count }} reviews)</span>
+                </div>
+
+                <!-- Price -->
+                {% if product.original_price %}
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <p class="product-price" style="margin:0;">${{ product.price }}</p>
+                    <p style="font-size:1.1rem;color:var(--gray);text-decoration:line-through;margin:0;">
+                        ${{ product.original_price }}
+                    </p>
+                    {% if product.discount_percentage %}
+                    <span style="background:#e74c3c;color:white;font-size:0.7rem;font-weight:700;padding:4px 10px;letter-spacing:1px;">
+                        -{{ product.discount_percentage }}% OFF
+                    </span>
+                    {% endif %}
+                </div>
+                {% else %}
+                <p class="product-price">${{ product.price }}</p>
+                {% endif %}
+
+                <p class="product-desc">{{ product.description }}</p>
+
+                <!-- Variants -->
+                {% if variants %}
+                {% for variant_type, values in variants.items %}
+                <div class="variants-section">
+                    <p class="variant-label">{{ variant_type|title }}</p>
+                    <div class="variant-options">
+                        {% for value in values %}
+                        <button class="variant-btn {% if forloop.first %}active{% endif %}">
+                            {{ value }}
+                        </button>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                <!-- Quantity -->
+                <div class="variants-section">
+                    <p class="variant-label">Quantity</p>
+                    <div class="qty-wrap">
+                        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                        <input type="number" class="qty-input" id="quantity"
+                               value="1" min="1" max="{{ product.stock }}">
+                        <button class="qty-btn" onclick="changeQty(1)">+</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    {% if product.stock > 0 %}
+                    <button class="btn-add-cart" onclick="addToCart({{ product.id }})">
+                        Add to Cart
+                    </button>
+                    <button class="btn-buy-now" onclick="buyNow({{ product.id }})">Buy Now</button>
+                    {% else %}
+                    <button class="btn-add-cart" disabled
+                        style="cursor:not-allowed;opacity:0.5;flex:2;">
+                        Sold Out
+                    </button>
+                    {% endif %}
+                    <button class="btn-outline-gold"
+                        onclick="toggleWishlist(event, {{ product.id }}, this)"
+                        id="wishlistBtn"
+                        style="padding:15px;width:50px;">
+                        {% if product.id in wishlist_ids %}
+                        <i class="fas fa-heart"></i>
+                        {% else %}
+                        <i class="far fa-heart"></i>
+                        {% endif %}
+                    </button>
+                </div>
+
+                <!-- Meta -->
+                <div class="product-meta">
+                    <div>Category: <span>{{ product.category.name }}</span></div>
+                    <div>Brand: <span>{{ product.brand.name }}</span></div>
+                    <div>Stock:
+                        {% if product.stock > 0 %}
+                        <span>In Stock ({{ product.stock }} left)</span>
+                        {% else %}
+                        <span style="color:#e74c3c;">Out of Stock</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── REVIEWS ────────────────────────────────────────────── -->
+<section class="reviews-section">
+    <div class="container">
+        <p class="section-subtitle">Customer Feedback</p>
+        <h2 class="section-title">Reviews</h2>
+        <div class="gold-divider"></div>
+
+        {% if reviews %}
+        {% for review in reviews %}
+        <div class="review-card reveal">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                    <p class="reviewer-name">{{ review.user.get_full_name|default:review.user.username }}</p>
+                    <p class="review-date">{{ review.created_at|date:"F j, Y" }}</p>
+                </div>
+                <div>
+                    {% if review.rating >= 1 %}
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% else %}
+                    <i class="far fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% endif %}
+                    {% if review.rating >= 2 %}
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% else %}
+                    <i class="far fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% endif %}
+                    {% if review.rating >= 3 %}
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% else %}
+                    <i class="far fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% endif %}
+                    {% if review.rating >= 4 %}
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% else %}
+                    <i class="far fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% endif %}
+                    {% if review.rating >= 5 %}
+                    <i class="fas fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% else %}
+                    <i class="far fa-star" style="color:var(--gold);font-size:0.8rem;"></i>
+                    {% endif %}
+                </div>
+            </div>
+            <p class="review-comment">{{ review.comment }}</p>
+
+            <!-- Review Media -->
+            {% if review.image1 or review.image2 or review.image3 or review.video %}
+            <div class="review-media">
+                {% if review.image1 %}
+                <img src="{{ review.image1.url }}" alt="Review photo"
+                     onclick="openMediaModal('{{ review.image1.url }}', 'image')">
+                {% endif %}
+                {% if review.image2 %}
+                <img src="{{ review.image2.url }}" alt="Review photo"
+                     onclick="openMediaModal('{{ review.image2.url }}', 'image')">
+                {% endif %}
+                {% if review.image3 %}
+                <img src="{{ review.image3.url }}" alt="Review photo"
+                     onclick="openMediaModal('{{ review.image3.url }}', 'image')">
+                {% endif %}
+                {% if review.video %}
+                <div class="review-video-thumb"
+                     onclick="openMediaModal('{{ review.video.url }}', 'video')">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Play Video</span>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% else %}
+        <p style="color:var(--gray);font-size:0.85rem;text-align:center;padding:30px 0;">
+            No reviews yet. Be the first to review!
+        </p>
+        {% endif %}
+
+        <!-- Review Form -->
+        {% if user.is_authenticated %}
+        <div class="review-form-wrap reveal">
+            <h4>Write a Review</h4>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label class="form-label-dark">Your Rating</label>
+                <div class="star-picker" id="starPicker">
+                    <i class="far fa-star" data-val="1"></i>
+                    <i class="far fa-star" data-val="2"></i>
+                    <i class="far fa-star" data-val="3"></i>
+                    <i class="far fa-star" data-val="4"></i>
+                    <i class="far fa-star" data-val="5"></i>
+                </div>
+                <input type="hidden" name="rating" id="ratingVal" value="5">
+
+                <label class="form-label-dark">Your Review</label>
+                <textarea name="comment" class="form-control-dark"
+                    rows="4" placeholder="Share your experience..."
+                    style="margin-bottom:20px;"></textarea>
+
+                <!-- Photo Upload -->
+                <label class="form-label-dark">Add Photos (max 3)</label>
+                <div class="upload-area" onclick="document.getElementById('photoInput').click()">
+                    <i class="fas fa-camera"></i>
+                    <p>Click to upload photos</p>
+                    <span>JPG, PNG up to 5MB each</span>
+                </div>
+                <input type="file" id="photoInput" name="images"
+                       accept="image/*" multiple style="display:none;"
+                       onchange="previewPhotos(this)">
+                <div class="photo-previews" id="photoPreviews"></div>
+
+                <!-- Video Upload -->
+                <label class="form-label-dark" style="margin-top:15px;">Add Video (optional)</label>
+                <div class="upload-area" onclick="document.getElementById('videoInput').click()">
+                    <i class="fas fa-video"></i>
+                    <p>Click to upload video</p>
+                    <span>MP4, MOV up to 50MB</span>
+                </div>
+                <input type="file" id="videoInput" name="video"
+                       accept="video/*" style="display:none;"
+                       onchange="previewVideo(this)">
+                <div id="videoPreview"></div>
+
+                <button type="submit" class="btn-gold" style="padding:12px 30px;margin-top:20px;">
+                    Submit Review
+                </button>
+            </form>
+        </div>
+        {% else %}
+        <div class="text-center mt-4" style="padding:30px;border:1px solid #2a2a2a;">
+            <p style="color:var(--gray);font-size:0.85rem;margin-bottom:15px;">
+                Please login to write a review
+            </p>
+            <a href="/login/" class="btn-gold" style="padding:10px 25px;">Login to Review</a>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+<!-- ─── RECOMMENDED ────────────────────────────────────────── -->
+{% if recommended %}
+<section class="recommended-section">
+    <div class="container">
+        <p class="section-subtitle">You May Also Like</p>
+        <h2 class="section-title">Recommended</h2>
+        <div class="gold-divider"></div>
+        <div class="row g-4">
+            {% for item in recommended %}
+            <div class="col-6 col-md-3 reveal">
+                <a href="/products/{{ item.id }}/" class="rec-card">
+                    <img src="{{ item.image_url }}&auto=format&fit=crop&w=400&q=85"
+                         alt="{{ item.title }}">
+                    <div class="rec-body">
+                        <p class="rec-brand">{{ item.brand.name }}</p>
+                        <p class="rec-title">{{ item.title }}</p>
+                        <p class="rec-price">${{ item.price }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Media Fullscreen Modal -->
+<div class="media-modal-overlay" id="mediaModalOverlay" onclick="closeMediaModal()">
+    <div class="media-modal-content" onclick="event.stopPropagation()">
+        <button class="media-modal-close" onclick="closeMediaModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div id="mediaModalInner"></div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function changeQty(change) {
+    const input = document.getElementById('quantity');
+    const newVal = parseInt(input.value) + change;
+    const max = {{ product.stock }};
+    if (newVal >= 1 && newVal <= max) input.value = newVal;
+}
+
+document.querySelectorAll('.variant-options').forEach(group => {
+    group.querySelectorAll('.variant-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            group.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+});
+
+const starBtns = document.querySelectorAll('#starPicker i');
+starBtns.forEach(star => {
+    star.addEventListener('click', () => {
+        const val = parseInt(star.getAttribute('data-val'));
+        document.getElementById('ratingVal').value = val;
+        starBtns.forEach((s, i) => {
+            if (i < val) { s.classList.replace('far', 'fas'); s.classList.add('lit'); }
+            else { s.classList.replace('fas', 'far'); s.classList.remove('lit'); }
+        });
+    });
+    star.addEventListener('mouseover', () => {
+        const val = parseInt(star.getAttribute('data-val'));
+        starBtns.forEach((s, i) => { s.style.color = i < val ? 'var(--gold)' : '#444'; });
+    });
+    star.addEventListener('mouseout', () => {
+        starBtns.forEach(s => s.style.color = '');
+    });
+});
+
+function addToCart(productId) {
+    fetch(`/products/${productId}/add-to-cart/`, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(res => res.json())
+    .then(data => {
+        showToast(data.message);
+        if (data.cart_count !== undefined) {
+            document.querySelectorAll('.cart-nav-badge').forEach(badge => {
+                badge.textContent = data.cart_count;
+                badge.style.display = data.cart_count > 0 ? 'flex' : 'none';
+            });
+        }
+    })
+    .catch(() => window.location.href = '/login/');
+}
+function buyNow(productId) {
+    fetch(`/products/${productId}/add-to-cart/`, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(res => res.json())
+    .then(data => {
+        // Update cart badge
+        if (data.cart_count !== undefined) {
+            document.querySelectorAll('.cart-nav-badge').forEach(badge => {
+                badge.textContent = data.cart_count;
+                badge.style.display = data.cart_count > 0 ? 'flex' : 'none';
+            });
+        }
+        // Go to cart page
+        window.location.href = '/cart/';
+    })
+    .catch(() => window.location.href = '/login/');
+}
+
+function showToast(msg) {
+    const t = document.createElement('div');
+    t.style.cssText = `position:fixed;bottom:90px;right:20px;background:var(--gold);
+        color:var(--black);padding:12px 24px;font-size:0.8rem;
+        letter-spacing:1px;z-index:99999;font-weight:600;`;
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+}
+
+// ─── PHOTO PREVIEW ────────────────────────────────────────
+function previewPhotos(input) {
+    const preview = document.getElementById('photoPreviews');
+    preview.innerHTML = '';
+    const files = Array.from(input.files).slice(0, 3);
+    files.forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const item = document.createElement('div');
+            item.className = 'photo-preview-item';
+            item.innerHTML = `
+                <img src="${e.target.result}" alt="Preview">
+                <button class="remove-preview" onclick="removePhoto(${index})">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            preview.appendChild(item);
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+function removePhoto(index) {
+    const input = document.getElementById('photoInput');
+    const dt = new DataTransfer();
+    Array.from(input.files).forEach((file, i) => {
+        if (i !== index) dt.items.add(file);
+    });
+    input.files = dt.files;
+    previewPhotos(input);
+}
+
+// ─── VIDEO PREVIEW ────────────────────────────────────────
+function previewVideo(input) {
+    const preview = document.getElementById('videoPreview');
+    preview.innerHTML = '';
+    if (input.files[0]) {
+        const url = URL.createObjectURL(input.files[0]);
+        preview.innerHTML = `<video controls><source src="${url}"></video>`;
+    }
+}
+
+// ─── MEDIA MODAL ──────────────────────────────────────────
+function openMediaModal(url, type) {
+    const inner = document.getElementById('mediaModalInner');
+    if (type === 'image') {
+        inner.innerHTML = `<img src="${url}" alt="Review media">`;
+    } else {
+        inner.innerHTML = `<video controls autoplay><source src="${url}"></video>`;
+    }
+    document.getElementById('mediaModalOverlay').classList.add('open');
+}
+
+function closeMediaModal() {
+    document.getElementById('mediaModalOverlay').classList.remove('open');
+    document.getElementById('mediaModalInner').innerHTML = '';
+}
+</script>
+{% endblock %}

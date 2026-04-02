@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% block title %}Checkout – Aurette{% endblock %}
+
+{% block extra_css %}
+<style>
+.checkout-section {
+    padding: 120px 0 80px;
+    min-height: 80vh;
+}
+
+.checkout-section h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 40px;
+}
+
+.checkout-form-wrap {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    padding: 35px;
+}
+
+.checkout-form-wrap h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.form-label-gold {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-input-dark {
+    background: var(--dark-3);
+    border: 1px solid #333;
+    color: var(--white);
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.3s;
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.form-input-dark:focus { border-color: var(--gold); }
+.form-input-dark::placeholder { color: var(--gray); }
+
+/* Order Summary */
+.checkout-summary {
+    background: var(--dark-2);
+    border: 1px solid #2A2A2A;
+    padding: 30px;
+    position: sticky;
+    top: 100px;
+}
+
+.checkout-summary h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.checkout-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.checkout-item img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border: 1px solid #2A2A2A;
+}
+
+.checkout-item-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-bottom: 3px;
+}
+
+.checkout-item-price {
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--gray);
+    margin-bottom: 12px;
+}
+
+.summary-row.total {
+    border-top: 1px solid #2A2A2A;
+    padding-top: 15px;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.summary-row.total span:last-child {
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .checkout-section { padding: 100px 0 60px; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="checkout-section">
+    <div class="container">
+        <p class="section-subtitle">Final Step</p>
+        <h1>Checkout</h1>
+
+        <div class="row g-4">
+
+            <!-- Delivery Form -->
+            <div class="col-lg-7">
+                <div class="checkout-form-wrap">
+                    <h4>Delivery Information</h4>
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <label class="form-label-gold">Full Name</label>
+                        <input type="text" name="full_name" class="form-input-dark"
+                               placeholder="Your full name" required
+                               value="{{ user.get_full_name }}">
+
+                        <label class="form-label-gold">Email Address</label>
+                        <input type="email" name="email" class="form-input-dark"
+                               placeholder="Your email" value="{{ user.email }}">
+
+                        <label class="form-label-gold">Phone Number</label>
+                        <input type="tel" name="phone" class="form-input-dark"
+                               placeholder="+971 50 000 0000" required>
+
+                        <label class="form-label-gold">Delivery Address</label>
+                        <textarea name="address" class="form-input-dark"
+                                  rows="3" placeholder="Street, City, Country"
+                                  required style="resize:none;"></textarea>
+
+                        <label class="form-label-gold">Payment Method</label>
+                        <div style="margin-bottom:25px;">
+                            <label style="display:flex;align-items:center;gap:10px;color:var(--gray);font-size:0.82rem;margin-bottom:12px;cursor:pointer;">
+                                <input type="radio" name="payment" value="cod" checked
+                                       style="accent-color:var(--gold);">
+                                Cash on Delivery
+                            </label>
+                            <label style="display:flex;align-items:center;gap:10px;color:var(--gray);font-size:0.82rem;cursor:pointer;">
+                                <input type="radio" name="payment" value="card"
+                                       style="accent-color:var(--gold);">
+                                Credit / Debit Card
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-gold w-100"
+                                style="padding:16px;font-size:0.8rem;letter-spacing:2px;">
+                            Place Order
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-lg-5">
+                <div class="checkout-summary">
+                    <h4>Order Summary</h4>
+
+                    {% for item in cart_items %}
+                    <div class="checkout-item">
+                        <img src="{{ item.product.image_url }}&w=100&q=80&auto=format&fit=crop"
+                             alt="{{ item.product.title }}">
+                        <div>
+                            <p class="checkout-item-title">{{ item.product.title }}</p>
+                            <p class="checkout-item-price">
+                                ${{ item.product.price }} × {{ item.quantity }}
+                            </p>
+                        </div>
+                        <span style="color:var(--gold);font-weight:600;margin-left:auto;">
+                            ${{ item.get_total }}
+                        </span>
+                    </div>
+                    {% endfor %}
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>${{ total }}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span style="color:var(--gold);">
+                            {% if total >= 500 %}Free{% else %}$25.00{% endif %}
+                        </span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span>${{ total }}</span>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <p style="font-size:0.7rem;color:var(--gray);letter-spacing:1px;">
+                            <i class="fas fa-lock me-1" style="color:var(--gold);"></i>
+                            Secured by SSL Encryption
+                        </p>
+                        <p style="font-size:0.7rem;color:var(--gray);letter-spacing:1px;margin-top:5px;">
+                            <i class="fas fa-undo me-1" style="color:var(--gold);"></i>
+                            30-Day Easy Returns
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
