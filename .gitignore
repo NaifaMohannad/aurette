@@ -34,3 +34,10 @@ Desktop.ini
 dist/
 build/
 *.egg-info/
+# Backup files
+data_backup.json
+data_backup_fixed.json
+full_data.json
+full_data_fixed.json
+store_data.json
+store_data_fixed.json
