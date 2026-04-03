@@ -323,30 +323,7 @@
                     rows="4" placeholder="Share your experience..."
                     style="margin-bottom:20px;"></textarea>
 
-                <!-- Photo Upload -->
-                <label class="form-label-dark">Add Photos (max 3)</label>
-                <div class="upload-area" onclick="document.getElementById('photoInput').click()">
-                    <i class="fas fa-camera"></i>
-                    <p>Click to upload photos</p>
-                    <span>JPG, PNG up to 5MB each</span>
-                </div>
-                <input type="file" id="photoInput" name="images"
-                       accept="image/*" multiple style="display:none;"
-                       onchange="previewPhotos(this)">
-                <div class="photo-previews" id="photoPreviews"></div>
-
-                <!-- Video Upload -->
-                <label class="form-label-dark" style="margin-top:15px;">Add Video (optional)</label>
-                <div class="upload-area" onclick="document.getElementById('videoInput').click()">
-                    <i class="fas fa-video"></i>
-                    <p>Click to upload video</p>
-                    <span>MP4, MOV up to 50MB</span>
-                </div>
-                <input type="file" id="videoInput" name="video"
-                       accept="video/*" style="display:none;"
-                       onchange="previewVideo(this)">
-                <div id="videoPreview"></div>
-
+                
                 <button type="submit" class="btn-gold" style="padding:12px 30px;margin-top:20px;">
                     Submit Review
                 </button>
@@ -484,47 +461,6 @@ function showToast(msg) {
     setTimeout(() => t.remove(), 3000);
 }
 
-// ─── PHOTO PREVIEW ────────────────────────────────────────
-function previewPhotos(input) {
-    const preview = document.getElementById('photoPreviews');
-    preview.innerHTML = '';
-    const files = Array.from(input.files).slice(0, 3);
-    files.forEach((file, index) => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const item = document.createElement('div');
-            item.className = 'photo-preview-item';
-            item.innerHTML = `
-                <img src="${e.target.result}" alt="Preview">
-                <button class="remove-preview" onclick="removePhoto(${index})">
-                    <i class="fas fa-times"></i>
-                </button>
-            `;
-            preview.appendChild(item);
-        };
-        reader.readAsDataURL(file);
-    });
-}
-
-function removePhoto(index) {
-    const input = document.getElementById('photoInput');
-    const dt = new DataTransfer();
-    Array.from(input.files).forEach((file, i) => {
-        if (i !== index) dt.items.add(file);
-    });
-    input.files = dt.files;
-    previewPhotos(input);
-}
-
-// ─── VIDEO PREVIEW ────────────────────────────────────────
-function previewVideo(input) {
-    const preview = document.getElementById('videoPreview');
-    preview.innerHTML = '';
-    if (input.files[0]) {
-        const url = URL.createObjectURL(input.files[0]);
-        preview.innerHTML = `<video controls><source src="${url}"></video>`;
-    }
-}
 
 // ─── MEDIA MODAL ──────────────────────────────────────────
 function openMediaModal(url, type) {

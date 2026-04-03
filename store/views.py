@@ -104,16 +104,7 @@ def product_detail(request, pk):
                 rating=rating,
                 comment=comment,
             )
-            images = request.FILES.getlist('images')
-            if len(images) >= 1:
-                review.image1 = images[0]
-            if len(images) >= 2:
-                review.image2 = images[1]
-            if len(images) >= 3:
-                review.image3 = images[2]
-            if 'video' in request.FILES:
-                review.video = request.FILES['video']
-            review.save()
+            
             messages.success(request, 'Review submitted successfully!')
             return redirect('product_detail', pk=pk)
 
