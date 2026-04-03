@@ -1,0 +1,3391 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-03-30T15:09:03.576Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "11",
+    "object_repr": "Bracelets",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-03-31T12:32:13.230Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Ruby Cocktail Ring - material: rose gold",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-03-31T12:32:52.735Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Ruby Cocktail Ring - material: rose gold",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-03-31T12:33:18.929Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "Ruby Cocktail Ring - material: silver",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-03-31T12:35:53.171Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "3",
+    "object_repr": "Diamond Solitaire Necklace - size: 36 inch",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-03-31T12:53:31.803Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Order #1 - admin1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-03-31T13:41:08.141Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Order #3 - Naifa",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-03-31T13:41:27.291Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Order #3 - Naifa",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-03-31T13:41:59.487Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Order #3 - Naifa",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-03-31T13:44:38.982Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "Naifa Sadath.k - DELAY",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is read\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-03-31T14:07:04.144Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "35",
+    "object_repr": "Silver Minimalist Bar Necklace",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-03-31T14:09:45.323Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "44",
+    "object_repr": "Sapphire Drop Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-03-31T14:11:44.322Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "44",
+    "object_repr": "Sapphire Drop Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-03-31T14:12:50.386Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "44",
+    "object_repr": "Sapphire Drop Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-03-31T14:17:13.218Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "44",
+    "object_repr": "Sapphire Drop Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-03-31T14:24:45.049Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "61",
+    "object_repr": "Diamond stud earings",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-03-31T14:25:52.685Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "61",
+    "object_repr": "Diamond flower stud earings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-03-31T14:27:19.093Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "4",
+    "object_repr": "Diamond flower stud earings - material: silver",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-03-31T14:28:04.166Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "4",
+    "object_repr": "Diamond flower stud earings - material: silver",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-03-31T14:28:11.683Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "4",
+    "object_repr": "Diamond flower stud earings - material: silver",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-03-31T14:28:35.545Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "5",
+    "object_repr": "Diamond flower stud earings - material: diamond",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-04-01T11:01:16.217Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "Necklaces",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-04-01T11:02:14.082Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "Necklaces",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-04-01T13:26:18.167Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "61",
+    "object_repr": "Diamond flower stud earings",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-04-01T13:32:43.563Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "60",
+    "object_repr": "Emerald Bridal Grand Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-04-01T13:47:38.043Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "60",
+    "object_repr": "Emerald Bridal Grand Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-04-01T13:50:16.623Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "60",
+    "object_repr": "Emerald Bridal Grand Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-04-01T13:52:04.595Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "60",
+    "object_repr": "Emerald Bridal Grand Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-04-01T13:53:51.440Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "6",
+    "object_repr": "Emerald Bridal Grand Set - material: diamond",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-04-01T13:57:41.734Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "59",
+    "object_repr": "Pearl Bridal Jewellery Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-04-01T13:59:43.418Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "7",
+    "object_repr": "Pearl Bridal Jewellery Set - color: bluish green",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-04-01T13:59:50.354Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "7",
+    "object_repr": "Pearl Bridal Jewellery Set - color: bluish green",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-04-01T13:59:53.961Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "7",
+    "object_repr": "Pearl Bridal Jewellery Set - color: bluish green",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-04-01T14:00:17.845Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "8",
+    "object_repr": "Pearl Bridal Jewellery Set - material: pearl",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-04-01T14:06:50.120Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "58",
+    "object_repr": "Rose Gold Bridal Choker Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-04-01T14:07:58.502Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "9",
+    "object_repr": "Rose Gold Bridal Choker Set - material: rose gold",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-04-01T14:14:01.723Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "57",
+    "object_repr": "Kundan Bridal Necklace Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-04-01T14:16:15.772Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "57",
+    "object_repr": "Kundan Bridal Necklace Set",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-04-01T14:17:24.715Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "10",
+    "object_repr": "Kundan Bridal Necklace Set - material: gold",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-04-01T14:20:57.763Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "56",
+    "object_repr": "Royal Diamond Bridal Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-04-01T14:21:36.502Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "56",
+    "object_repr": "Royal Diamond Bridal Set",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-04-01T14:22:28.567Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "56",
+    "object_repr": "Royal Diamond Bridal Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-04-01T14:23:34.786Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "11",
+    "object_repr": "Royal Diamond Bridal Set - material: diamond",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-04-01T14:29:23.404Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "55",
+    "object_repr": "Silver Tennis Bracelet",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-04-01T14:30:57.897Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "12",
+    "object_repr": "Silver Tennis Bracelet - material: silver",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-04-01T14:31:19.810Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "12",
+    "object_repr": "Silver Tennis Bracelet - material: diamond",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Value\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-04-01T14:33:09.431Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "13",
+    "object_repr": "Silver Tennis Bracelet - material: white gold",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-04-01T14:33:22.196Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "12",
+    "object_repr": "Silver Tennis Bracelet - material: silver",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Value\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-04-01T14:34:14.515Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "14",
+    "object_repr": "Silver Tennis Bracelet - size: 6.5 inches",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-04-01T14:34:55.861Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "15",
+    "object_repr": "Silver Tennis Bracelet - size: 5.5 inch",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-04-01T16:16:46.090Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "54",
+    "object_repr": "Amethyst Beaded Bracelet",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-04-01T16:17:45.146Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "16",
+    "object_repr": "Amethyst Beaded Bracelet - color: violet",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-04-01T16:22:03.193Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "53",
+    "object_repr": "Gold Link Bracelet",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-04-01T16:23:03.211Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "17",
+    "object_repr": "Gold Link Bracelet - material: gold",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-04-01T16:23:25.209Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "18",
+    "object_repr": "Gold Link Bracelet - size: 5",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-04-01T16:23:39.733Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "18",
+    "object_repr": "Gold Link Bracelet - size: 5.5 inches",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Value\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-04-01T16:26:21.842Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "52",
+    "object_repr": "Rose Gold Charm Bracelet",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2026-04-01T16:27:13.495Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "19",
+    "object_repr": "Rose Gold Charm Bracelet - material: Rose gold",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2026-04-01T16:29:38.051Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "51",
+    "object_repr": "Diamond Chain Bracelet",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2026-04-01T16:30:21.221Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "20",
+    "object_repr": "Diamond Chain Bracelet - material: diamond",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2026-04-01T16:30:42.639Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "21",
+    "object_repr": "Diamond Chain Bracelet - size: 6.5 inches",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2026-04-01T16:30:49.034Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "21",
+    "object_repr": "Diamond Chain Bracelet - size: 6.5 inches",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2026-04-01T16:31:14.086Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "22",
+    "object_repr": "Diamond Chain Bracelet - size: 7 inches",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2026-04-01T16:39:05.900Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "50",
+    "object_repr": "Silver Cuff Bangle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2026-04-01T16:42:02.326Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "49",
+    "object_repr": "Emerald diamond Bangle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Description\", \"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2026-04-01T16:43:32.796Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "23",
+    "object_repr": "Emerald diamond Bangle - material: diamond",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2026-04-01T16:45:07.668Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "48",
+    "object_repr": "Gold Kada Bangle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2026-04-01T16:47:17.438Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "24",
+    "object_repr": "Gold Kada Bangle - material: gol",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2026-04-01T16:47:48.452Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "24",
+    "object_repr": "Gold Kada Bangle - material: gold",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Value\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2026-04-01T16:49:45.918Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "47",
+    "object_repr": "Rose Gold Bangle Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\", \"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2026-04-01T16:50:17.183Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "25",
+    "object_repr": "Rose Gold Bangle Set - material: rose gold",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2026-04-01T16:52:45.474Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "46",
+    "object_repr": "Diamond Bangle",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2026-04-01T16:55:45.966Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "45",
+    "object_repr": "Silver Geometric Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2026-04-01T16:58:45.235Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "45",
+    "object_repr": "Silver Square Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Description\", \"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2026-04-01T17:00:20.032Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "26",
+    "object_repr": "Silver Square Earrings - material: silver",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2026-04-01T17:02:25.731Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "44",
+    "object_repr": "Sapphire Drop Earrings",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2026-04-01T17:05:28.724Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "42",
+    "object_repr": "Gold Hoop Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Description\", \"Brand\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2026-04-01T17:09:54.595Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "41",
+    "object_repr": "Diamond Saphire Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2026-04-02T11:38:32.747Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "61",
+    "object_repr": "Diamond flower stud earings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Original price\", \"Discount percentage\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2026-04-02T11:39:39.489Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "61",
+    "object_repr": "Diamond flower stud earings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Discount percentage\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2026-04-02T11:40:34.356Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "61",
+    "object_repr": "Diamond flower stud earings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2026-04-02T12:01:50.003Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "61",
+    "object_repr": "Diamond flower stud earings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is featured\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2026-04-02T12:07:31.696Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "31",
+    "object_repr": "Diamond Solitaire Necklace",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2026-04-02T13:45:10.818Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "Naifa - Rose Gold Bangle Set",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2026-04-02T14:33:14.725Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "Necklaces",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2026-04-02T14:34:16.844Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "31",
+    "object_repr": "Diamond Solitaire Necklace",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is featured\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2026-04-02T14:37:12.680Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "44",
+    "object_repr": "Sapphire Drop Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Original price\", \"Discount percentage\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2026-04-02T14:38:38.374Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "56",
+    "object_repr": "Royal Diamond Bridal Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Original price\", \"Discount percentage\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2026-04-02T14:39:27.886Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "57",
+    "object_repr": "Kundan Bridal Necklace Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Original price\", \"Discount percentage\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2026-04-02T14:40:27.624Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "59",
+    "object_repr": "Pearl Bridal Jewellery Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Original price\", \"Discount percentage\", \"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2026-04-02T14:41:55.752Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "31",
+    "object_repr": "Diamond Solitaire Necklace",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Original price\", \"Discount percentage\", \"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2026-04-02T14:42:46.119Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "36",
+    "object_repr": "Diamond Engagement Ring",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Original price\", \"Discount percentage\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2026-04-02T14:43:17.942Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "41",
+    "object_repr": "Diamond Saphire Earrings",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Original price\", \"Discount percentage\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2026-04-02T14:47:52.533Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "40",
+    "object_repr": "Silver Twist Band Ring",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2026-04-02T14:50:27.366Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "39",
+    "object_repr": "Ruby Cocktail Ring",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2026-04-02T14:50:49.298Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "39",
+    "object_repr": "Ruby Cocktail Ring",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2026-04-02T14:56:41.540Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "38",
+    "object_repr": "Gold Signet Ring",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2026-04-02T14:57:30.162Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "27",
+    "object_repr": "Gold Signet Ring - material: gold",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2026-04-02T14:59:11.164Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "37",
+    "object_repr": "Rose Gold Stackable Ring",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Price\", \"Original price\", \"Discount percentage\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2026-04-02T15:01:16.420Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "28",
+    "object_repr": "Silver Minimalist Bar Necklace - material: silver",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2026-04-02T15:05:22.693Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "33",
+    "object_repr": "Rose Gold Heart Pendant",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\", \"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2026-04-02T15:11:32.458Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "32",
+    "object_repr": "Gold Layered Chain Necklace Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Description\", \"Price\", \"Original price\", \"Discount percentage\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2026-04-02T15:12:06.148Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "32",
+    "object_repr": "Gold Layered Chain Necklace Set",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2026-04-02T15:14:37.119Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "31",
+    "object_repr": "Diamond Solitaire Necklace",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image url\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 3,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 3,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 3,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 3,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 2,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 2,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 2,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 2,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add order",
+    "content_type": 10,
+    "codename": "add_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change order",
+    "content_type": 10,
+    "codename": "change_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete order",
+    "content_type": 10,
+    "codename": "delete_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view order",
+    "content_type": 10,
+    "codename": "view_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add review",
+    "content_type": 13,
+    "codename": "add_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change review",
+    "content_type": 13,
+    "codename": "change_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete review",
+    "content_type": 13,
+    "codename": "delete_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view review",
+    "content_type": 13,
+    "codename": "view_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add cart",
+    "content_type": 8,
+    "codename": "add_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change cart",
+    "content_type": 8,
+    "codename": "change_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete cart",
+    "content_type": 8,
+    "codename": "delete_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view cart",
+    "content_type": 8,
+    "codename": "view_cart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add brand",
+    "content_type": 7,
+    "codename": "add_brand"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change brand",
+    "content_type": 7,
+    "codename": "change_brand"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete brand",
+    "content_type": 7,
+    "codename": "delete_brand"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view brand",
+    "content_type": 7,
+    "codename": "view_brand"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add product",
+    "content_type": 12,
+    "codename": "add_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change product",
+    "content_type": 12,
+    "codename": "change_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete product",
+    "content_type": 12,
+    "codename": "delete_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view product",
+    "content_type": 12,
+    "codename": "view_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add order item",
+    "content_type": 11,
+    "codename": "add_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change order item",
+    "content_type": 11,
+    "codename": "change_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete order item",
+    "content_type": 11,
+    "codename": "delete_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view order item",
+    "content_type": 11,
+    "codename": "view_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add category",
+    "content_type": 9,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change category",
+    "content_type": 9,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete category",
+    "content_type": 9,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view category",
+    "content_type": 9,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add product variant",
+    "content_type": 14,
+    "codename": "add_productvariant"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change product variant",
+    "content_type": 14,
+    "codename": "change_productvariant"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete product variant",
+    "content_type": 14,
+    "codename": "delete_productvariant"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view product variant",
+    "content_type": 14,
+    "codename": "view_productvariant"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add contact message",
+    "content_type": 15,
+    "codename": "add_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change contact message",
+    "content_type": 15,
+    "codename": "change_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete contact message",
+    "content_type": 15,
+    "codename": "delete_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view contact message",
+    "content_type": 15,
+    "codename": "view_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add wishlist",
+    "content_type": 16,
+    "codename": "add_wishlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change wishlist",
+    "content_type": 16,
+    "codename": "change_wishlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete wishlist",
+    "content_type": 16,
+    "codename": "delete_wishlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view wishlist",
+    "content_type": 16,
+    "codename": "view_wishlist"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$UhXtfyFiabpev2Lheafbt9$ZM/eaMz1ZHcN7majRpLHtCo6nPK+sUGzQXJxijkSH0E=",
+    "last_login": "2026-04-01T10:29:32.769Z",
+    "is_superuser": true,
+    "username": "admin1",
+    "first_name": "",
+    "last_name": "",
+    "email": "naifamohannad@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-30T08:47:06.863Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$RlwqB0QCCv5Pbc2z0CctSd$RGXAOlswjVIJByA34UKbxVbKzrOV/BhOOOfpyEHZQHQ=",
+    "last_login": "2026-03-31T13:37:03.442Z",
+    "is_superuser": false,
+    "username": "Naifa",
+    "first_name": "Naifa",
+    "last_name": "Sadath.k",
+    "email": "naifasadath.2000@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-31T13:37:01.934Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "store",
+    "model": "brand"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "store",
+    "model": "cart"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "store",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "store",
+    "model": "order"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "store",
+    "model": "orderitem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "store",
+    "model": "product"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "store",
+    "model": "review"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "store",
+    "model": "productvariant"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "store",
+    "model": "contactmessage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "store",
+    "model": "wishlist"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3pknnmwlu1mbd3q0b99fbsip0hrf23mv",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgoHRcuvcMZIBBqoYmpV0Z765NutDtf-_9lwi0rTVsnZcwZXEWWpx-t0jpwW0H-U7tNss0t3WZotwVedAur3Pm5-Vw_w4q9fqtC0TDhq1mOybywBGTUw4UKgQkVwZAiIxkyEfrrFHaAPpxsNYVTSTeH9b1Nw8:1w7spI:hAuy6ziesO1C6_LpZq5mSbaH-uCNq5yxZjRYSljYNKc",
+    "expire_date": "2026-04-15T10:29:32.787Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "67wfmjk0dhgdn8yuxxhtelstvte3imo5",
+  "fields": {
+    "session_data": ".eJxVjc0OwiAQhN-FsyHAQtv16N1nIAtspWrA9OdkfHdp0oNe55v55i08bWv228Kzn5I4Cy1Ov1mg-OCyg3Sncqsy1rLOU5B7RR50kdea-Hk5un-CTEtu6xGCYcNWsx0i9cABo1MOFCoEJDd2gBAYyVAfrLNGaQPYD521btRETRrr9qrFx3bVhOLzBbDxPIs:1w7YqC:IwacYqMCOwxwzU58DV7l_IxlwtKCFnHxtCPYStPc7wM",
+    "expire_date": "2026-04-14T13:09:08.042Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u3uavkcthvlce92pkl9ow8ka2fyx2js0",
+  "fields": {
+    "session_data": ".eJxVjcsOwiAQRf-FtSE8SjN16d5vIMMMSNWAKe3K-O_SpAtN7uo-zn0Lj9ua_dbi4mcWZ2HE6dcLSI9Y9oDvWG5VUi3rMge5V-SRNnmtHJ-Xo_sHyNhyX2vH5GxIgwEduxS5pDRbxQPAGCcLgUeDCQEQTSJLiiDhYKxTkzKuQ6lur1o89asOFJ8vytg9Pw:1w8J0x:ohBxcpq2DTN2mosnGrrSVYRL9zr6xXxHPQU1c6ckltI",
+    "expire_date": "2026-04-16T14:27:19.444Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 7,
+  "fields": {
+    "name": "Necklaces",
+    "gender": "female",
+    "description": "Discover our exquisite collection of necklaces, crafted for the modern woman"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 8,
+  "fields": {
+    "name": "Rings",
+    "gender": "unisex",
+    "description": ""
+  }
+},
+{
+  "model": "store.category",
+  "pk": 9,
+  "fields": {
+    "name": "Earrings",
+    "gender": "female",
+    "description": ""
+  }
+},
+{
+  "model": "store.category",
+  "pk": 10,
+  "fields": {
+    "name": "Bangles",
+    "gender": "female",
+    "description": ""
+  }
+},
+{
+  "model": "store.category",
+  "pk": 11,
+  "fields": {
+    "name": "Bracelets",
+    "gender": "unisex",
+    "description": ""
+  }
+},
+{
+  "model": "store.category",
+  "pk": 12,
+  "fields": {
+    "name": "Bridal Sets",
+    "gender": "female",
+    "description": ""
+  }
+},
+{
+  "model": "store.category",
+  "pk": 13,
+  "fields": {
+    "name": "Men's Rings",
+    "gender": "male",
+    "description": ""
+  }
+},
+{
+  "model": "store.category",
+  "pk": 14,
+  "fields": {
+    "name": "Men's Bracelets",
+    "gender": "male",
+    "description": ""
+  }
+},
+{
+  "model": "store.brand",
+  "pk": 7,
+  "fields": {
+    "name": "Diamonique",
+    "tagline": "Timeless Diamond Elegance",
+    "logo_url": ""
+  }
+},
+{
+  "model": "store.brand",
+  "pk": 8,
+  "fields": {
+    "name": "Roseva",
+    "tagline": "Blush in Rose Gold",
+    "logo_url": ""
+  }
+},
+{
+  "model": "store.brand",
+  "pk": 9,
+  "fields": {
+    "name": "Goldara",
+    "tagline": "Pure Gold Craftsmanship",
+    "logo_url": ""
+  }
+},
+{
+  "model": "store.brand",
+  "pk": 10,
+  "fields": {
+    "name": "Velvetine",
+    "tagline": "Royal Bridal Collections",
+    "logo_url": ""
+  }
+},
+{
+  "model": "store.brand",
+  "pk": 11,
+  "fields": {
+    "name": "Luminos",
+    "tagline": "Vibrant Gemstone Jewellery",
+    "logo_url": ""
+  }
+},
+{
+  "model": "store.brand",
+  "pk": 12,
+  "fields": {
+    "name": "Silvique",
+    "tagline": "Modern Silver Minimalism",
+    "logo_url": ""
+  }
+},
+{
+  "model": "store.product",
+  "pk": 31,
+  "fields": {
+    "title": "Diamond Solitaire Necklace",
+    "description": "A stunning solitaire diamond pendant on a delicate gold chain. Perfect for any occasion.",
+    "price": "800.00",
+    "original_price": "1600.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.pexels.com/photos/18157530/pexels-photo-18157530.jpeg?_gl=1*1h9qha9*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUxNDExNDgkbzMkZzEkdDE3NzUxNDI4NTAkajU5JGwwJGgw",
+    "category": 7,
+    "brand": 7,
+    "stock": 4,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.243Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 32,
+  "fields": {
+    "title": "Gold Layered Chain Necklace Set",
+    "description": "Elegant multi-layered gold chain necklace set with earrings that adds sophistication to any outfit.",
+    "price": "250.00",
+    "original_price": "500.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.pexels.com/photos/33222147/pexels-photo-33222147.jpeg?_gl=1*19l9vbq*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUxNDExNDgkbzMkZzEkdDE3NzUxNDI1NzgkajU5JGwwJGgw",
+    "category": 7,
+    "brand": 9,
+    "stock": 20,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.247Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 33,
+  "fields": {
+    "title": "Rose Gold Heart Pendant",
+    "description": "A romantic rose gold heart pendant with a sparkling rose diamond accent.",
+    "price": "159.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/29193429/pexels-photo-29193429.jpeg?_gl=1*15t0zjg*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUxNDExNDgkbzMkZzEkdDE3NzUxNDIyNTQkajQzJGwwJGgw",
+    "category": 7,
+    "brand": 8,
+    "stock": 18,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.251Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 34,
+  "fields": {
+    "title": "Emerald Drop Necklace",
+    "description": "Luxurious emerald drop necklace set in 18k gold. A statement piece for special occasions.",
+    "price": "459.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600",
+    "category": 7,
+    "brand": 11,
+    "stock": 8,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.257Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 35,
+  "fields": {
+    "title": "Silver Minimalist Bar Necklace",
+    "description": "Clean and modern silver bar necklace. Perfect for everyday minimalist style.",
+    "price": "89.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://www.rosegoldandblack.com/cdn/shop/products/MinimalBar3_1024x1024.jpg?v=1714066454",
+    "category": 7,
+    "brand": 12,
+    "stock": 25,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.262Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 36,
+  "fields": {
+    "title": "Diamond Engagement Ring",
+    "description": "Classic round brilliant diamond engagement ring in 18k white gold. Timeless and elegant.",
+    "price": "500.00",
+    "original_price": "1000.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600",
+    "category": 8,
+    "brand": 7,
+    "stock": 10,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.266Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 37,
+  "fields": {
+    "title": "Rose Gold Stackable Ring",
+    "description": "Delicate rose gold stackable ring with tiny diamond accents. Mix and match beautifully.",
+    "price": "150.00",
+    "original_price": "300.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600",
+    "category": 8,
+    "brand": 8,
+    "stock": 30,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.271Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 38,
+  "fields": {
+    "title": "Gold Signet Ring",
+    "description": "Bold and sophisticated gold signet ring. A timeless classic reimagined for modern women.",
+    "price": "199.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/19869446/pexels-photo-19869446.jpeg?_gl=1*bksiyb*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUxNDExNDgkbzMkZzEkdDE3NzUxNDE3NzIkajU5JGwwJGgw",
+    "category": 8,
+    "brand": 9,
+    "stock": 12,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.276Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 39,
+  "fields": {
+    "title": "Ruby Cocktail Ring",
+    "description": "Stunning ruby cocktail ring surrounded by brilliant diamonds in a gold setting.",
+    "price": "549.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/29193425/pexels-photo-29193425.jpeg?_gl=1*15jjq2a*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUxNDExNDgkbzMkZzEkdDE3NzUxNDEzODgkajU5JGwwJGgw",
+    "category": 8,
+    "brand": 11,
+    "stock": 0,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.281Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 40,
+  "fields": {
+    "title": "Silver Twist Band Ring",
+    "description": "Modern twisted silver band ring. Simple yet striking minimalist design.",
+    "price": "79.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/16274872/pexels-photo-16274872.jpeg?_gl=1*1y7jkzl*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUxNDExNDgkbzMkZzEkdDE3NzUxNDEyNDMkajI5JGwwJGgw",
+    "category": 8,
+    "brand": 12,
+    "stock": 22,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.285Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 41,
+  "fields": {
+    "title": "Diamond Saphire Earrings",
+    "description": "Classic diamond saphire earrings in  mixed with white and blue . A must-have for every jewellery collection.",
+    "price": "400.00",
+    "original_price": "800.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600",
+    "category": 9,
+    "brand": 7,
+    "stock": 20,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.290Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 42,
+  "fields": {
+    "title": "Gold Hoop Earrings",
+    "description": "Elegant medium-sized  gold hoop earrings. Versatile enough for day or evening wear.",
+    "price": "119.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600",
+    "category": 9,
+    "brand": 9,
+    "stock": 18,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.295Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 43,
+  "fields": {
+    "title": "Gold Chandelier Earrings",
+    "description": "Dramatic gold chandelier earrings with intricate filigree design. Perfect for weddings.",
+    "price": "229.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600",
+    "category": 9,
+    "brand": 9,
+    "stock": 14,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.299Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 44,
+  "fields": {
+    "title": "Sapphire Drop Earrings",
+    "description": "Stunning deep blue sapphire drop earrings set in 18k gold. A showstopping statement.",
+    "price": "200.00",
+    "original_price": "400.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.unsplash.com/photo-1629224316810-9d8805b95e76?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": 9,
+    "brand": 11,
+    "stock": 9,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.304Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 45,
+  "fields": {
+    "title": "Silver Square Earrings",
+    "description": "Modern  silver square earrings with hangings. Perfect for the contemporary woman.",
+    "price": "69.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/30138138/pexels-photo-30138138.jpeg?_gl=1*1h2prq9*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNjAwNDYkbzIkZzEkdDE3NzUwNjI2MjEkajIkbDAkaDA.",
+    "category": 9,
+    "brand": 12,
+    "stock": 25,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.309Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 46,
+  "fields": {
+    "title": "Diamond Bangle",
+    "description": "Luxurious diamond  bangle in 18k white gold. The ultimate luxury accessory.",
+    "price": "1299.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600",
+    "category": 10,
+    "brand": 7,
+    "stock": 5,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.314Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 47,
+  "fields": {
+    "title": "Rose Gold Bangle Set",
+    "description": "Set of 2 delicate rose gold bangles. Stack them together for a stunning layered look.",
+    "price": "179.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/20429577/pexels-photo-20429577.jpeg?_gl=1*17tekj7*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNjAwNDYkbzIkZzEkdDE3NzUwNjIxNDckajMwJGwwJGgw",
+    "category": 10,
+    "brand": 8,
+    "stock": 16,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.319Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 48,
+  "fields": {
+    "title": "Gold Kada Bangle",
+    "description": "Traditional gold kada bangle with modern engraved pattern. Timeless Indian elegance.",
+    "price": "389.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/20493840/pexels-photo-20493840.jpeg?_gl=1*124q14b*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNjAwNDYkbzIkZzEkdDE3NzUwNjE4ODUkajI3JGwwJGgw",
+    "category": 10,
+    "brand": 9,
+    "stock": 11,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.325Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 49,
+  "fields": {
+    "title": "Emerald diamond Bangle",
+    "description": "Stunning bangle with emerald gemstone accents set in diamond. Regal and beautiful.",
+    "price": "599.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/32988534/pexels-photo-32988534.jpeg?_gl=1*un24gp*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNjAwNDYkbzIkZzEkdDE3NzUwNjE2NTIkajgkbDAkaDA.",
+    "category": 10,
+    "brand": 11,
+    "stock": 6,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.329Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 50,
+  "fields": {
+    "title": "Silver Cuff Bangle",
+    "description": "Bold open-ended silver cuff bangle. Minimalist design with maximum impact.",
+    "price": "99.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/266621/pexels-photo-266621.jpeg?_gl=1*13e7rmb*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNjAwNDYkbzIkZzEkdDE3NzUwNjE1MTMkajE4JGwwJGgw",
+    "category": 10,
+    "brand": 12,
+    "stock": 20,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.333Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 51,
+  "fields": {
+    "title": "Diamond Chain Bracelet",
+    "description": "Delicate diamond chain bracelet in 18k white gold. Effortlessly elegant.",
+    "price": "449.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/30746010/pexels-photo-30746010.jpeg?_gl=1*nxox83*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNjAwNDYkbzIkZzEkdDE3NzUwNjA5NTYkajQkbDAkaDA.",
+    "category": 11,
+    "brand": 7,
+    "stock": 12,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.337Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 52,
+  "fields": {
+    "title": "Rose Gold Charm Bracelet",
+    "description": "Beautiful rose gold charm bracelet with heart and star charms. Sweet and feminine.",
+    "price": "149.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/14935012/pexels-photo-14935012.jpeg?_gl=1*1u00p28*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNjAwNDYkbzIkZzEkdDE3NzUwNjA3NTckajEyJGwwJGgw",
+    "category": 11,
+    "brand": 8,
+    "stock": 18,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.341Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 53,
+  "fields": {
+    "title": "Gold Link Bracelet",
+    "description": "Classic chunky gold link bracelet. Bold and sophisticated statement jewellery.",
+    "price": "269.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/12124638/pexels-photo-12124638.jpeg?_gl=1*1ax6lu6*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNjAwNDYkbzIkZzEkdDE3NzUwNjA0OTgkajQ5JGwwJGgw",
+    "category": 11,
+    "brand": 9,
+    "stock": 14,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.345Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 54,
+  "fields": {
+    "title": "Amethyst Beaded Bracelet",
+    "description": "Natural amethyst gemstone beaded bracelet with gold accents. Spiritual and stunning.",
+    "price": "119.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/10328131/pexels-photo-10328131.jpeg?_gl=1*deen0e*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNjAwNDYkbzIkZzEkdDE3NzUwNjAxNzkkajMkbDAkaDA.",
+    "category": 11,
+    "brand": 11,
+    "stock": 20,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.349Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 55,
+  "fields": {
+    "title": "Silver Tennis Bracelet",
+    "description": "Classic silver tennis bracelet with cubic zirconia stones. Elegant and affordable luxury.",
+    "price": "139.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/8891956/pexels-photo-8891956.jpeg?_gl=1*13675ay*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNTExMDEkbzEkZzEkdDE3NzUwNTM3MTgkajE0JGwwJGgw",
+    "category": 11,
+    "brand": 12,
+    "stock": 22,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.352Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 56,
+  "fields": {
+    "title": "Royal Diamond Bridal Set",
+    "description": "Diamond bridal jewellery set including necklace and earings.",
+    "price": "2000.00",
+    "original_price": "4000.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.pexels.com/photos/16082501/pexels-photo-16082501.jpeg?_gl=1*1vmajo1*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNTExMDEkbzEkZzEkdDE3NzUwNTMxNjYkajIzJGwwJGgw",
+    "category": 12,
+    "brand": 10,
+    "stock": 3,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.356Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 57,
+  "fields": {
+    "title": "Kundan Bridal Necklace Set",
+    "description": "Traditional Kundan bridal necklace set with matching earrings. Exquisite craftsmanship.",
+    "price": "3000.00",
+    "original_price": "6000.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.pexels.com/photos/28347072/pexels-photo-28347072.jpeg?_gl=1*rryn62*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNTExMDEkbzEkZzEkdDE3NzUwNTI4MjEkajMyJGwwJGgw",
+    "category": 12,
+    "brand": 10,
+    "stock": 4,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.360Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 58,
+  "fields": {
+    "title": "Rose Gold Bridal Choker Set",
+    "description": "Modern rose gold bridal choker set. Perfect for the contemporary bride.",
+    "price": "1499.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.unsplash.com/photo-1758995115785-d13726ac93f0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": 12,
+    "brand": 10,
+    "stock": 5,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.364Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 59,
+  "fields": {
+    "title": "Pearl Bridal Jewellery Set",
+    "description": "Elegant freshwater pearl bridal set with gold accents. Classic and timeless beauty.",
+    "price": "1500.00",
+    "original_price": "3000.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.pexels.com/photos/33154729/pexels-photo-33154729.jpeg?_gl=1*17irqhq*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNTExMDEkbzEkZzEkdDE3NzUwNTE4MzMkajQ3JGwwJGgw",
+    "category": 12,
+    "brand": 10,
+    "stock": 7,
+    "is_featured": false,
+    "created_at": "2026-03-30T10:21:19.368Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 60,
+  "fields": {
+    "title": "Emerald Bridal Grand Set",
+    "description": "Magnificent emerald and diamond grand bridal set. For the bride who wants to dazzle.",
+    "price": "3499.99",
+    "original_price": null,
+    "discount_percentage": null,
+    "image_url": "https://images.pexels.com/photos/29245549/pexels-photo-29245549.jpeg?_gl=1*hs6p9w*_ga*ODg2MDEwNDcyLjE3NzUwNTExMDE.*_ga_8JE65Q40S6*czE3NzUwNTExMDEkbzEkZzEkdDE3NzUwNTE0OTckajQyJGwwJGgw",
+    "category": 12,
+    "brand": 10,
+    "stock": 2,
+    "is_featured": true,
+    "created_at": "2026-03-30T10:21:19.376Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 61,
+  "fields": {
+    "title": "Diamond flower stud earings",
+    "description": "Elegant diamond stud earrings crafted to add timeless sparkle to your everyday look. Designed with precision and brilliance, these studs offer a perfect blend of simplicity and luxuryideal for any occasion.",
+    "price": "100.00",
+    "original_price": "200.00",
+    "discount_percentage": 50,
+    "image_url": "https://images.unsplash.com/photo-1638734205377-f21045bf6ebe?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": 9,
+    "brand": 7,
+    "stock": 0,
+    "is_featured": false,
+    "created_at": "2026-03-31T14:24:45.044Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 1,
+  "fields": {
+    "product": 31,
+    "user": 1,
+    "rating": 4,
+    "comment": "good",
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "video": "",
+    "created_at": "2026-03-30T19:20:45.585Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 2,
+  "fields": {
+    "product": 31,
+    "user": 2,
+    "rating": 2,
+    "comment": "nice",
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "video": "",
+    "created_at": "2026-04-01T13:23:11.985Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 4,
+  "fields": {
+    "product": 58,
+    "user": 2,
+    "rating": 3,
+    "comment": "got this one",
+    "image1": "reviews/jewelry-lifestyle-flat-layout-with-place-text-jewellery-background-mockup-banner_Z0S8azj.jpg",
+    "image2": "",
+    "image3": "",
+    "video": "",
+    "created_at": "2026-04-02T13:58:48.951Z"
+  }
+},
+{
+  "model": "store.review",
+  "pk": 5,
+  "fields": {
+    "product": 46,
+    "user": 2,
+    "rating": 3,
+    "comment": "GOOD",
+    "image1": "",
+    "image2": "",
+    "image3": "",
+    "video": "",
+    "created_at": "2026-04-02T14:29:14.041Z"
+  }
+},
+{
+  "model": "store.cart",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "product": 33,
+    "quantity": 1
+  }
+},
+{
+  "model": "store.cart",
+  "pk": 20,
+  "fields": {
+    "user": 2,
+    "product": 46,
+    "quantity": 1
+  }
+},
+{
+  "model": "store.order",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "total": "1399.96",
+    "status": "processing",
+    "created_at": "2026-03-31T12:50:10.800Z",
+    "full_name": "Naifa Sadath.k",
+    "address": "dfgre",
+    "phone": "+919946563786"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "total": "2399.98",
+    "status": "pending",
+    "created_at": "2026-03-31T13:09:08.006Z",
+    "full_name": "DS",
+    "address": "WS",
+    "phone": "DSW"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "total": "619.97",
+    "status": "processing",
+    "created_at": "2026-03-31T13:39:27.712Z",
+    "full_name": "Naifa Sadath.k",
+    "address": "INDIA",
+    "phone": "9946563786"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 4,
+  "fields": {
+    "user": 2,
+    "total": "469.97",
+    "status": "pending",
+    "created_at": "2026-04-02T13:56:41.828Z",
+    "full_name": "Naifa Sadath.k",
+    "address": "qatar",
+    "phone": "9946563786"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "total": "3399.98",
+    "status": "pending",
+    "created_at": "2026-04-02T14:26:18.087Z",
+    "full_name": "Naifa Sadath.k",
+    "address": "delhi",
+    "phone": "9956787647"
+  }
+},
+{
+  "model": "store.order",
+  "pk": 6,
+  "fields": {
+    "user": 2,
+    "total": "119.99",
+    "status": "pending",
+    "created_at": "2026-04-02T14:27:19.398Z",
+    "full_name": "Naifa Sadath.k",
+    "address": "CALICUT",
+    "phone": "12345678"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 44,
+    "quantity": 2,
+    "price": "399.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 1,
+    "product": 31,
+    "quantity": 2,
+    "price": "299.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 2,
+    "product": 58,
+    "quantity": 2,
+    "price": "1499.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 3,
+    "product": 31,
+    "quantity": 1,
+    "price": "299.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 3,
+    "product": 33,
+    "quantity": 2,
+    "price": "159.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 4,
+    "product": 32,
+    "quantity": 1,
+    "price": "189.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 4,
+    "product": 33,
+    "quantity": 1,
+    "price": "159.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 8,
+  "fields": {
+    "order": 4,
+    "product": 42,
+    "quantity": 1,
+    "price": "119.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 9,
+  "fields": {
+    "order": 5,
+    "product": 58,
+    "quantity": 1,
+    "price": "1499.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 10,
+  "fields": {
+    "order": 5,
+    "product": 57,
+    "quantity": 1,
+    "price": "1899.99"
+  }
+},
+{
+  "model": "store.orderitem",
+  "pk": 11,
+  "fields": {
+    "order": 6,
+    "product": 42,
+    "quantity": 1,
+    "price": "119.99"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 1,
+  "fields": {
+    "product": 39,
+    "variant_type": "material",
+    "value": "rose gold"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 2,
+  "fields": {
+    "product": 39,
+    "variant_type": "material",
+    "value": "silver"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 3,
+  "fields": {
+    "product": 31,
+    "variant_type": "size",
+    "value": "36 inch"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 4,
+  "fields": {
+    "product": 61,
+    "variant_type": "material",
+    "value": "silver"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 5,
+  "fields": {
+    "product": 61,
+    "variant_type": "material",
+    "value": "diamond"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 6,
+  "fields": {
+    "product": 60,
+    "variant_type": "material",
+    "value": "diamond"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 7,
+  "fields": {
+    "product": 59,
+    "variant_type": "color",
+    "value": "bluish green"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 8,
+  "fields": {
+    "product": 59,
+    "variant_type": "material",
+    "value": "pearl"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 9,
+  "fields": {
+    "product": 58,
+    "variant_type": "material",
+    "value": "rose gold"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 10,
+  "fields": {
+    "product": 57,
+    "variant_type": "material",
+    "value": "gold"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 11,
+  "fields": {
+    "product": 56,
+    "variant_type": "material",
+    "value": "diamond"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 12,
+  "fields": {
+    "product": 55,
+    "variant_type": "material",
+    "value": "silver"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 13,
+  "fields": {
+    "product": 55,
+    "variant_type": "material",
+    "value": "white gold"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 14,
+  "fields": {
+    "product": 55,
+    "variant_type": "size",
+    "value": "6.5 inches"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 15,
+  "fields": {
+    "product": 55,
+    "variant_type": "size",
+    "value": "5.5 inch"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 16,
+  "fields": {
+    "product": 54,
+    "variant_type": "color",
+    "value": "violet"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 17,
+  "fields": {
+    "product": 53,
+    "variant_type": "material",
+    "value": "gold"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 18,
+  "fields": {
+    "product": 53,
+    "variant_type": "size",
+    "value": "5.5 inches"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 19,
+  "fields": {
+    "product": 52,
+    "variant_type": "material",
+    "value": "Rose gold"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 20,
+  "fields": {
+    "product": 51,
+    "variant_type": "material",
+    "value": "diamond"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 21,
+  "fields": {
+    "product": 51,
+    "variant_type": "size",
+    "value": "6.5 inches"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 22,
+  "fields": {
+    "product": 51,
+    "variant_type": "size",
+    "value": "7 inches"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 23,
+  "fields": {
+    "product": 49,
+    "variant_type": "material",
+    "value": "diamond"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 24,
+  "fields": {
+    "product": 48,
+    "variant_type": "material",
+    "value": "gold"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 25,
+  "fields": {
+    "product": 47,
+    "variant_type": "material",
+    "value": "rose gold"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 26,
+  "fields": {
+    "product": 45,
+    "variant_type": "material",
+    "value": "silver"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 27,
+  "fields": {
+    "product": 38,
+    "variant_type": "material",
+    "value": "gold"
+  }
+},
+{
+  "model": "store.productvariant",
+  "pk": 28,
+  "fields": {
+    "product": 35,
+    "variant_type": "material",
+    "value": "silver"
+  }
+},
+{
+  "model": "store.contactmessage",
+  "pk": 1,
+  "fields": {
+    "name": "Naifa Sadath.k",
+    "email": "naifasadath.2000@gmail.com",
+    "subject": "DELAY",
+    "message": "dont get the product",
+    "created_at": "2026-03-31T13:43:52.525Z",
+    "is_read": true
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "product": 46,
+    "created_at": "2026-04-01T11:16:20.609Z"
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 9,
+  "fields": {
+    "user": 1,
+    "product": 31,
+    "created_at": "2026-04-01T11:22:18.092Z"
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 11,
+  "fields": {
+    "user": 1,
+    "product": 33,
+    "created_at": "2026-04-01T11:23:05.940Z"
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 12,
+  "fields": {
+    "user": 1,
+    "product": 43,
+    "created_at": "2026-04-01T11:28:22.292Z"
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 13,
+  "fields": {
+    "user": 1,
+    "product": 32,
+    "created_at": "2026-04-01T12:22:56.642Z"
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 14,
+  "fields": {
+    "user": 1,
+    "product": 41,
+    "created_at": "2026-04-01T12:24:38.545Z"
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 15,
+  "fields": {
+    "user": 2,
+    "product": 31,
+    "created_at": "2026-04-01T12:45:13.109Z"
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 16,
+  "fields": {
+    "user": 2,
+    "product": 47,
+    "created_at": "2026-04-02T13:45:44.327Z"
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 17,
+  "fields": {
+    "user": 2,
+    "product": 58,
+    "created_at": "2026-04-02T13:57:56.828Z"
+  }
+},
+{
+  "model": "store.wishlist",
+  "pk": 18,
+  "fields": {
+    "user": 2,
+    "product": 60,
+    "created_at": "2026-04-02T15:18:03.235Z"
+  }
+}
+]

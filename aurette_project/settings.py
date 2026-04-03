@@ -25,7 +25,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-y-)_f132!g6u8c-@zd2%w
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://aurette-mu.vercel.app',
+    'https://*.vercel.app',
+]
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
