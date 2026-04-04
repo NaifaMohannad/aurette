@@ -97,7 +97,7 @@ def product_detail(request, pk):
     if request.method == 'POST' and request.user.is_authenticated:
       rating = request.POST.get('rating', 5)
       comment = request.POST.get('comment', '')
-    if comment:
+      if comment:
         Review.objects.create(
             product=product,
             user=request.user,
