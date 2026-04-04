@@ -95,18 +95,17 @@ def product_detail(request, pk):
         ).values_list('product_id', flat=True))
 
     if request.method == 'POST' and request.user.is_authenticated:
-        rating = request.POST.get('rating', 5)
-        comment = request.POST.get('comment', '')
-        if comment:
-            review = Review(
-                product=product,
-                user=request.user,
-                rating=rating,
-                comment=comment,
-            )
-            
-            messages.success(request, 'Review submitted successfully!')
-            return redirect('product_detail', pk=pk)
+      rating = request.POST.get('rating', 5)
+      comment = request.POST.get('comment', '')
+    if comment:
+        Review.objects.create(
+            product=product,
+            user=request.user,
+            rating=rating,
+            comment=comment,
+        )
+        messages.success(request, 'Review submitted successfully!')
+        return redirect('product_detail', pk=pk)
 
     return render(request, 'store/product_detail.html', {
         'product': product,
