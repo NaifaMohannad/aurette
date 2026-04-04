@@ -6,12 +6,20 @@
 <style>
 /* ─── HERO VIDEO CAROUSEL ────────────────────────────────── */
 .hero-slide {
-    height: 100vh;
-    min-height: 600px;
+    height: 80vh;
+    min-height: 500px;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
+    
+}
+
+@media (max-width: 768px) {
+    .hero-slide {
+        height: 60vh;
+        min-height: 300px;
+    }
 }
 
 .hero-bg {
@@ -21,6 +29,13 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+@media (max-width: 768px) {
+    .hero-bg {
+        object-fit: cover;
+        object-position: center top;
+    }
 }
 
 .hero-overlay { display: none; }
@@ -478,7 +493,7 @@
         <div class="carousel-item active">
             <div class="hero-slide">
                 <video class="hero-bg" autoplay muted loop playsinline>
-                    <source src="{% static 'videos/hero3.mp4' %}" type="video/mp4">
+                    <source src="{% static 'videos/hero1.mp4' %}" type="video/mp4">
                 </video>
                 <div class="hero-overlay"></div>
             </div>
@@ -514,15 +529,19 @@
 <!-- 2. MARQUEE ───────────────────────────────────────────── -->
 <div class="marquee-strip">
     <div class="marquee-content">
-        <span><i class="fas fa-gem"></i> Free Shipping Over $500</span>
+        <span><i class="fas fa-gem"></i> Free Shipping </span>
+        <span><i class="fas fa-undo"></i> Fine jewellery</span>
         <span><i class="fas fa-shield-alt"></i> Certified Authentic</span>
         <span><i class="fas fa-undo"></i> 30-Day Returns</span>
-        <span><i class="fas fa-crown"></i> Exclusive Members Offers</span>
+        <span><i class="fas fa-undo"></i> Fine jewellery</span>
         <span><i class="fas fa-gem"></i> Handcrafted With Love</span>
+        <span><i class="fas fa-undo"></i> Fine jewellery</span>
         <span><i class="fas fa-shield-alt"></i> Lifetime Warranty</span>
         <span><i class="fas fa-gem"></i> Free Shipping Over $500</span>
+        <span><i class="fas fa-undo"></i> Fine jewellery</span>
         <span><i class="fas fa-shield-alt"></i> Certified Authentic</span>
         <span><i class="fas fa-undo"></i> 30-Day Returns</span>
+        <span><i class="fas fa-undo"></i> Fine jewellery</span>
         <span><i class="fas fa-crown"></i> Exclusive Members Offers</span>
     </div>
 </div>
