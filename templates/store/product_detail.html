@@ -306,7 +306,7 @@
         {% if user.is_authenticated %}
         <div class="review-form-wrap reveal">
             <h4>Write a Review</h4>
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST">
                 {% csrf_token %}
                 <label class="form-label-dark">Your Rating</label>
                 <div class="star-picker" id="starPicker">
